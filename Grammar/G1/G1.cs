@@ -181,12 +181,30 @@ public class Attribute
         Collection<object> nl, Collection<object> P)
     {
         Collection<object> ret = new Collection<object>();
+        try
+        {
+            ret.Add(null);
+
+        }
+        catch (Exception e)
+        {
+            ret[0] = e;
+        }
         return ret;
     }
 
     public Collection<object> P3(Collection<object> s1, Collection<object> n1, Collection<object> nl, Collection<object> P)
     {
         Collection<object> ret = new Collection<object>();
+        try
+        {
+            ret.Add(null);
+            Collection<Player> Player = new Collection<Player>(); // TODO!
+        }
+        catch (Exception e)
+        {
+            ret[0] = e;
+        }
         return ret;
     }
 
@@ -218,7 +236,7 @@ public class Attribute
             Collection<Tour> Tours = (Collection<int>)H[1];
             Tours.Add(Tour);
 
-            ret.Add(Numbers);
+            ret.Add(Tours);
         }
         catch (Exception e)
         {
