@@ -9,17 +9,19 @@ public class Attribute
 {
     class Team
     {
+        public string age_category;
         public string global_id;
         public string name;
         public string email;
         public string city;
 
-        public Team(string global_id, string name, string email, string city)
+        public Team()
         {
-            this.global_id = global_id;
-            this.name = name;
-            this.email = email;
-            this.city = city;
+            this.global_id = null;
+            this.name = null;
+            this.email = null;
+            this.city = null;
+            this.age_category = null;
         }
     }
 
@@ -29,13 +31,15 @@ public class Attribute
         public string name;
         public string bday;
         public string is_captain;
+        public string rate_id;
 
-        public Player(string team_id, string name, string bday, string is_captain)
+        public Player(string name, string bday, string is_captain, string rate_id)
         {
-            this.team_global_id = team_id;
+            this.team_global_id = null;
             this.name = name;
             this.bday = bday;
             this.is_captain = is_captain;
+            this.rate_id = rate_id;
         }
     }
 
@@ -110,19 +114,57 @@ public class Attribute
     public Collection<object> E(Collection<object> W1, Collection<object> c1, Collection<object> W2, Collection<object> nl, Collection<object> E)
     {
         Collection<object> ret = new Collection<object>();
+        ret.Add(null);
+
+        Team TheTeam = (Team)E[1];
+        if (TheTeam == null) TheTeam = new Team();
+        string doubledeclare = "";
+
+        if (W1[1] == "Название команды")
+        {
+            if (TheTeam.name == null) TheTeam.name = W2[1];
+            else doubledeclare = W1[1];
+        }
+        else
+            if (W1[1] == "Возрастная категория")
+            {
+                if (TheTeam.age_category == null) TheTeam.age_category = W2[1];
+                else doubledeclare = W1[1];
+            }
+            else
+                if (W1[1] == "Город")
+                {
+                    if (TheTeam.city == null) TheTeam.city = W2[1];
+                    else doubledeclare = W1[1];
+                }
+                else
+                    if (W1[1] == "ID в рейтинге")
+                    {
+                        if (TheTeam.global_id == null) TheTeam.global_id = W2[1];
+                        else doubledeclare = W1[1];
+                    }
+                    else
+                        if (W1[1] == "Email/тел.")
+                        {
+                            if (TheTeam.email == null) TheTeam.email = W2[1];
+                            else doubledeclare = W1[1];
+                        }
+                        else
+                            ret[0] = "WRONG DECLARE!";
+
+        ret.Add(TheTeam);
         return ret;
     }
 
     public Collection<object> E1(Collection<object> W1, Collection<object> c1, Collection<object> p2, Collection<object> nl, Collection<object> E)
     {
-        Collection<object> ret = new Collection<object>();
-        return ret;
+        // what the hell here?
+        return E;
     }
 
     public Collection<object> E2(Collection<object> W1, Collection<object> c1, Collection<object> nl, Collection<object> E)
     {
-        Collection<object> ret = new Collection<object>();
-        return ret;
+        return E;
     }
 
     public Collection<object> NextP(Collection<object> P)
@@ -137,22 +179,16 @@ public class Attribute
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
 
-        Collection<Player> caps;
-
-        if (P.Count < 2)
-        {
-            caps = new Collection<Player>();
-        }
-        else
-        {
-            caps = (Collection<Player>)P[1];
-        }
-
-
         try
         {
-            caps.Add(new Player(null, (string)Name[1], (string)Date[1], ""));
-            ret.Add(caps);
+            ret.Add(null);
+
+            Collection<Player> Player = new Collection<Player>((string)Name[1], (string)Date[1], false, null);
+
+            Collection<Player> Players = (Collection<Player>)P[1];
+            Players.Add(Player);
+
+            ret.Add(Players);
         }
         catch (Exception e)
         {
@@ -165,6 +201,29 @@ public class Attribute
         Collection<object> c1, Collection<object> p4, Collection<object> Date, Collection<object> nl, Collection<object> P)
     {
         Collection<object> ret = new Collection<object>();
+        try
+        {
+            ret.Add(null);
+
+            Collection<Player> Player = new Collection<Player>((string)Name[1], (string)Date[1], true, null);
+
+            Collection<Player> Players = (Collection<Player>)P[1];
+
+            // check bug
+            if (is_capitan)
+            {
+                foreach (var Vasya in Players)
+                    if (Vasya.is_captain) throw new Exception("More than one capitan!");
+            }
+
+            Players.Add(Player);
+
+            ret.Add(Players);
+        }
+        catch (Exception e)
+        {
+            ret[0] = e;
+        }
         return ret;
     }
 
@@ -173,6 +232,21 @@ public class Attribute
         Collection<object> s3, Collection<object> nE, Collection<object> nl, Collection<object> P)
     {
         Collection<object> ret = new Collection<object>();
+        try
+        {
+            ret.Add(null);
+
+            Collection<Player> Player = new Collection<Player>((string)Name[1], (string)Date[1], false, (string)sym[0]);
+
+            Collection<Player> Players = (Collection<Player>)P[1];
+            Players.Add(Player);
+
+            ret.Add(Players);
+        }
+        catch (Exception e)
+        {
+            ret[0] = e;
+        }
         return ret;
     }
 
@@ -185,6 +259,20 @@ public class Attribute
         {
             ret.Add(null);
 
+            Collection<Player> Player = new Collection<Player>((string)Name[1], (string)Date[1], true, (string)sym[0]);
+
+            Collection<Player> Players = (Collection<Player>)P[1];
+            
+            // check bug
+            if (is_capitan)
+            {
+                foreach (var Vasya in Players)
+                    if (Vasya.is_captain) throw new Exception("More than one capitan!");
+            }
+
+            Players.Add(Player);
+
+            ret.Add(Players);
         }
         catch (Exception e)
         {
@@ -195,17 +283,7 @@ public class Attribute
 
     public Collection<object> P3(Collection<object> s1, Collection<object> n1, Collection<object> nl, Collection<object> P)
     {
-        Collection<object> ret = new Collection<object>();
-        try
-        {
-            ret.Add(null);
-            Collection<Player> Player = new Collection<Player>(); // TODO!
-        }
-        catch (Exception e)
-        {
-            ret[0] = e;
-        }
-        return ret;
+        return P;
     }
 
 
