@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<?xml-stylesheet type='text/xsl' href='grammar.xsl'?>
+<grammar xmlns="http://umeta.ru/namespaces/trpl"  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://umeta.ru/namespaces/trpl grammar.xsd'>
+	<CommentLineStartSymbol>*</CommentLineStartSymbol>
+	
+	<NS>Start</NS>
+	<NS>S</NS>
+	<NS>Word</NS>
+
+	<TS>w</TS>
+	<TS>c</TS>
+	<TS>n</TS>
+	<TS>p</TS>
+	<TS>nl</TS>
+	<TS>.</TS>
+	<TS>?</TS>
+	
+	<PR attr="Start">
+		<left>
+			<PRS>Start</PRS>
+		</left>
+		<right>
+			<PRS>w</PRS>
+			<PRS>S</PRS>
+		</right>
+	</PR>	
+	
+	<PR attr="S1">
+		<left>
+			<PRS>S</PRS>
+		</left>
+		<right>
+			<PRS>n</PRS>
+			<PRS>.</PRS>
+			<PRS>p</PRS>
+			<PRS>Word</PRS>
+			<PRS>nl</PRS>	
+			<PRS>S</PRS>
+		</right>
+	</PR>
+
+	<PR attr="S2">
+		<left>
+			<PRS>S</PRS>
+		</left>
+		<right>
+			<PRS>n</PRS>
+			<PRS>?</PRS>
+			<PRS>.</PRS>
+			<PRS>p</PRS>
+			<PRS>Word</PRS>
+			<PRS>nl</PRS>
+			<PRS>S</PRS>
+		</right>
+	</PR>
+	
+
+	<PR attr="S0">
+		<left>
+			<PRS>S</PRS>
+		</left>
+		<right />
+	</PR>	
+
+  <PR attr="w">
+    <left>
+      <PRS>Word</PRS>
+    </left>
+    <right>
+	  <PRS>Word</PRS>
+      <PRS>w</PRS>
+    </right>
+  </PR>
+  <PR attr="w">
+    <left>
+      <PRS>Word</PRS>
+    </left>
+    <right>
+	  <PRS>Word</PRS>
+      <PRS>n</PRS>
+    </right>
+  </PR>
+  <PR attr="w">
+    <left>
+      <PRS>Word</PRS>
+    </left>
+    <right>
+	  <PRS>Word</PRS>
+      <PRS>p</PRS>
+    </right>
+  </PR>
+  <PR attr="w">
+    <left>
+      <PRS>Word</PRS>
+    </left>
+    <right>
+	  <PRS>Word</PRS>
+      <PRS>c</PRS>
+    </right>
+  </PR>
+
+  
+  <PR attr="w1">
+    <left>
+      <PRS>Word</PRS>
+    </left>
+    <right>
+      <PRS>w</PRS>
+    </right>
+  </PR>
+  <PR attr="w1">
+    <left>
+      <PRS>Word</PRS>
+    </left>
+    <right>
+      <PRS>n</PRS>
+    </right>
+  </PR>
+  <PR attr="w1">
+    <left>
+      <PRS>Word</PRS>
+    </left>
+    <right>
+      <PRS>p</PRS>
+    </right>
+  </PR>
+  <PR attr="w1">
+    <left>
+      <PRS>Word</PRS>
+    </left>
+    <right>
+      <PRS>c</PRS>
+    </right>
+  </PR>
+
+
+  <SS>Start</SS>
+</grammar>

@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<?xml-stylesheet type='text/xsl' href='grammar.xsl'?>
+<grammar xmlns="http://umeta.ru/namespaces/trpl"  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://umeta.ru/namespaces/trpl grammar.xsd'>
+	<CommentLineStartSymbol>%</CommentLineStartSymbol>
+
+	<NS>S</NS>
+	<NS>A</NS>
+	<NS>E</NS>
+	<NS>F</NS>
+	<NS>I</NS>
+	<NS>Word</NS>
+	<NS>WordE</NS>
+	<NS>Word|</NS>
+	
+	<TS>w</TS>
+	<TS>n</TS>
+	<TS>c</TS>
+	<TS>p</TS>
+	<TS>nl</TS>
+	<TS>|</TS>
+	<TS>!</TS>
+	<TS>+</TS>
+	<TS>?</TS>
+
+	<PR attr="Start">
+		<left>
+			<PRS>S</PRS>
+		</left>
+		<right>
+			<PRS>w</PRS>
+			<PRS>w</PRS>
+			<PRS>p</PRS>
+			<PRS>n</PRS>
+			<PRS>WordE</PRS>
+			<PRS>nl</PRS>
+			<PRS>A</PRS>
+		</right>
+	</PR>
+
+	<PR attr="A1">
+		<left>
+			<PRS>A</PRS>
+		</left>
+		<right>
+			<PRS>n</PRS>
+			<PRS>p</PRS>
+			<PRS>w</PRS>
+			<PRS>p</PRS>
+			<PRS>Word|</PRS>
+			<PRS>|</PRS>
+			<PRS>WordE</PRS>
+			<PRS>nl</PRS>
+			<PRS>A</PRS>
+		</right>
+	</PR>
+
+	<PR attr="A2">
+		<left>
+			<PRS>A</PRS>
+		</left>
+		<right>
+			<PRS>n</PRS>
+			<PRS>p</PRS>
+			<PRS>w</PRS>
+			<PRS>p</PRS>
+			<PRS>Word|</PRS>
+			<PRS>nl</PRS>
+			<PRS>A</PRS>
+		</right>
+	</PR>
+
+	<PR attr="NextE">
+		<left>
+			<PRS>A</PRS>
+		</left>
+		<right>
+			<PRS>E</PRS>
+		</right>
+	</PR>
+
+
+	<PR attr="E1">
+		<left>
+			<PRS>E</PRS>
+		</left>
+		<right>
+			<PRS>!</PRS>
+			<PRS>n</PRS>
+			<PRS>nl</PRS>
+			<PRS>F</PRS>
+			<PRS>E</PRS>
+		</right>
+	</PR>
+
+
+	<PR attr="E2">
+		<left>
+			<PRS>E</PRS>
+		</left>
+		<right />
+	</PR>
+
+
+	<PR attr="F1">
+		<left>
+			<PRS>F</PRS>
+		</left>
+		<right>
+			<PRS>n</PRS>
+			<PRS>I</PRS>
+			<PRS>p</PRS>
+			<PRS>Word</PRS>
+			<PRS>nl</PRS>
+			<PRS>F</PRS>
+		</right>
+	</PR>
+
+	<PR attr="F2">
+		<left>
+			<PRS>F</PRS>
+		</left>
+		<right>
+			<PRS>n</PRS>
+			<PRS>I</PRS>
+			<PRS>nl</PRS>
+			<PRS>F</PRS>
+		</right>
+	</PR>	
+
+	<PR attr="F3">
+		<left>
+			<PRS>F</PRS>
+		</left>
+		<right>
+			<PRS>+</PRS>
+			<PRS>n</PRS>
+			<PRS>I</PRS>
+			<PRS>p</PRS>
+			<PRS>Word</PRS>
+			<PRS>nl</PRS>
+			<PRS>F</PRS>
+		</right>
+	</PR>
+	
+	<PR attr="F3p">
+		<left>
+			<PRS>F</PRS>
+		</left>
+		<right>
+			<PRS>+</PRS>
+			<PRS>n</PRS>
+			<PRS>I</PRS>
+			<PRS>nl</PRS>
+			<PRS>F</PRS>
+		</right>
+	</PR>
+
+	<PR attr="F4">
+		<left>
+			<PRS>F</PRS>
+		</left>
+		<right>
+			<PRS>?</PRS>
+			<PRS>n</PRS>
+			<PRS>I</PRS>
+			<PRS>p</PRS>
+			<PRS>Word</PRS>
+			<PRS>nl</PRS>
+			<PRS>F</PRS>
+		</right>
+	</PR>
+
+
+	<PR attr="F0">
+		<left>
+			<PRS>F</PRS>
+		</left>
+		<right />
+	</PR>
+
+
+	<PR attr="I1">
+		<left>
+			<PRS>I</PRS>
+		</left>
+		<right>
+			<PRS>c</PRS>
+			<PRS>n</PRS>
+			<PRS>I</PRS>
+		</right>
+	</PR>
+
+	<PR attr="I2">
+		<left>
+			<PRS>I</PRS>
+		</left>
+		<right />
+	</PR>
+
+
+
+
+	<PR attr="w">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>Word</PRS>
+			<PRS>w</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>Word</PRS>
+			<PRS>n</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>Word</PRS>
+			<PRS>p</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>Word</PRS>
+			<PRS>c</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>Word</PRS>
+			<PRS>|</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>Word</PRS>
+			<PRS>!</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>Word</PRS>
+			<PRS>+</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>Word</PRS>
+			<PRS>?</PRS>
+		</right>
+	</PR>
+
+	
+	
+	<PR attr="w1">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>w</PRS>
+		</right>
+	</PR>
+	<PR attr="w1">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>n</PRS>
+		</right>
+	</PR>
+	<PR attr="w1">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>p</PRS>
+		</right>
+	</PR>
+	<PR attr="w1">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>c</PRS>
+		</right>
+	</PR>	
+	<PR attr="w1">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>!</PRS>
+		</right>
+	</PR>	
+	<PR attr="w1">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>+</PRS>
+		</right>
+	</PR>	
+	<PR attr="w1">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>?</PRS>
+		</right>
+	</PR>
+	<PR attr="w1">
+		<left>
+			<PRS>Word</PRS>
+		</left>
+		<right>
+			<PRS>|</PRS>
+		</right>
+	</PR>
+
+	
+	
+	
+	
+	<PR attr="w">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>Word|</PRS>
+			<PRS>w</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>Word|</PRS>
+			<PRS>n</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>Word|</PRS>
+			<PRS>p</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>Word|</PRS>
+			<PRS>c</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>Word|</PRS>
+			<PRS>!</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>Word|</PRS>
+			<PRS>+</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>Word|</PRS>
+			<PRS>?</PRS>
+		</right>
+	</PR>
+
+	
+	
+	<PR attr="w1">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>w</PRS>
+		</right>
+	</PR>
+	<PR attr="w1">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>n</PRS>
+		</right>
+	</PR>
+	<PR attr="w1">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>p</PRS>
+		</right>
+	</PR>
+	<PR attr="w1">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>c</PRS>
+		</right>
+	</PR>	
+	<PR attr="w1">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>!</PRS>
+		</right>
+	</PR>	
+	<PR attr="w1">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>+</PRS>
+		</right>
+	</PR>	
+	<PR attr="w1">
+		<left>
+			<PRS>Word|</PRS>
+		</left>
+		<right>
+			<PRS>?</PRS>
+		</right>
+	</PR>
+
+
+	
+	
+	<PR attr="w">
+		<left>
+			<PRS>WordE</PRS>
+		</left>
+		<right>
+			<PRS>WordE</PRS>
+			<PRS>w</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>WordE</PRS>
+		</left>
+		<right>
+			<PRS>WordE</PRS>
+			<PRS>n</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>WordE</PRS>
+		</left>
+		<right>
+			<PRS>WordE</PRS>
+			<PRS>p</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>WordE</PRS>
+		</left>
+		<right>
+			<PRS>WordE</PRS>
+			<PRS>c</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>WordE</PRS>
+		</left>
+		<right>
+			<PRS>WordE</PRS>
+			<PRS>|</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>WordE</PRS>
+		</left>
+		<right>
+			<PRS>WordE</PRS>
+			<PRS>!</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>WordE</PRS>
+		</left>
+		<right>
+			<PRS>WordE</PRS>
+			<PRS>+</PRS>
+		</right>
+	</PR>
+	<PR attr="w">
+		<left>
+			<PRS>WordE</PRS>
+		</left>
+		<right>
+			<PRS>WordE</PRS>
+			<PRS>?</PRS>
+		</right>
+	</PR>
+	<PR attr="w2">
+		<left>
+			<PRS>WordE</PRS>
+		</left>
+		<right />
+	</PR>
+
+
+	<SS>S</SS>
+</grammar>
