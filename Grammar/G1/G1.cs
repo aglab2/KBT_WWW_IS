@@ -14,6 +14,7 @@ public class Attribute
         public string name;
         public string email;
         public string city;
+        public string phone;
 
         public Team()
         {
@@ -22,6 +23,7 @@ public class Attribute
             this.email = null;
             this.city = null;
             this.age_category = null;
+            this.phone = null;
         }
     }
 
@@ -49,7 +51,7 @@ public class Attribute
     {
         public int num;
         public Collection<int> playernums;
-        public Collection<Player> players;
+        public Collection<Player> players = new Collection<Player>();
 
         public Tour(int num, Collection<int> playernums)
         {
@@ -61,64 +63,56 @@ public class Attribute
     public Collection<object> S1(Collection<object> w0, Collection<object> w1, Collection<object> k1, Collection<object> w2, Collection<object> k2,
          Collection<object> w3, Collection<object> nl, Collection<object> D)
     {
-        //Console.WriteLine("Hello!");
-        return null;
+        Collection<object> ret = new Collection<object>();
+        ret.Add(null);
+
+        Team TheTeam = (Team)E[1];
+        Collection<Player> Players = (Collection<Player>)E[2];
+        Collection<Tour> Tours = (Collection<Tour>)E[3];
+        
+        return ret;
     }
 
-    public Collection<object> D(Collection<object> W1, Collection<object> c1, Collection<object> W2, Collection<object> nl, Collection<object> D)
+    public Collection<object> D(Collection<object> W1, Collection<object> c1, Collection<object> W2, Collection<object> nl, Collection<object> E)
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
 
-        Team TheTeam;
-        if (D[1] == null) 
-            TheTeam = new Team(); 
-            else TheTeam = (Team)D[1];
+        Team TheTeam = (Team)E[1];
+        Collection<Player> Players = (Collection<Player>)E[2];
+        Collection<Tour> Tours = (Collection<Tour>)E[3];
 
-        string doubledeclare = "";
+        string doubledeclare = null;
+        string title = ((string)W1[1]).Trim();
 
-        if ((string)W1[1] == "Название команды")
+        if (title == "Название команды")
         {
             if (TheTeam.name == null) TheTeam.name = (string)W2[1];
             else doubledeclare = (string)W1[1];
         }
-        else
-            if ((string)W1[1] == "Возрастная категория")
-            {
-                if (TheTeam.age_category == null) TheTeam.age_category = (string)W2[1];
-                else doubledeclare = (string)W1[1];
-            }
-            else
-                if ((string)W1[1] == "Город")
-                {
-                    if (TheTeam.city == null) TheTeam.city = (string)W2[1];
-                    else doubledeclare = (string)W1[1];
-                }
-                else
-                    if ((string)W1[1] == "ID в рейтинге")
-                    {
-                        if (TheTeam.global_id == null) TheTeam.global_id = (string)W2[1];
-                        else doubledeclare = (string)W1[1];
-                    }
-                    else
-                        if ((string)W1[1] == "Email/тел.")
-                        {
-                            if (TheTeam.email == null) TheTeam.email = (string)W2[1];
-                            else doubledeclare = (string)W1[1];
-                        }
-                        else
-                            ret[0] = "WRONG DECLARE!";
+        else if (title == "Возрастная категория")
+        {
+            if (TheTeam.age_category == null) TheTeam.age_category = (string)W2[1];
+            else doubledeclare = (string)W1[1]; //TODO
+        }
+        else if (title == "Город")
+        {
+            if (TheTeam.city == null) TheTeam.city = (string)W2[1];
+            else doubledeclare = (string)W1[1];
+        }
+        else if (title == "ID в рейтинге")
+        {
+            if (TheTeam.global_id == null) TheTeam.global_id = (string)W2[1];
+            else doubledeclare = (string)W1[1];
+        }
+
+        if (doubledeclare != null)
+            ret[0] = new Exception("Double DECLARE! " + doubledeclare);
 
         ret.Add(TheTeam);
-
+        ret.Add(Players);
+        ret.Add(Tours);
         return ret;
-
-    }
-
-    public Collection<object> D1(Collection<object> W1, Collection<object> c1, Collection<object> p2, Collection<object> nl, Collection<object> D)
-    {
-        return null;
-        //what the hell here?
     }
 
     public Collection<object> D2(Collection<object> W1, Collection<object> c1, Collection<object> nl, Collection<object> D)
@@ -133,13 +127,17 @@ public class Attribute
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
 
+        Team TheTeam = (Team)E[1];
+        Collection<Player> Players = (Collection<Player>)E[2];
+        Collection<Tour> Tours = (Collection<Tour>)E[3];
+
         try
         {
             //Email/тел.
             if ((string)w1[0] == "Email" && (string)w2[0] == "тел")
             {
-                ret.Add(EmailWord[1]);
-                ret.Add(Phone[1]);
+                TheTeam.phone = (string)Phone[1];
+                TheTeam.email = (string)EmailWord[1];
             }
             else throw new Exception("Wrong e-mail/phone description!!!");
         }
@@ -148,6 +146,9 @@ public class Attribute
             ret[0] = e;
         }
 
+        ret.Add(TheTeam);
+        ret.Add(Players);
+        ret.Add(Tours);
 
         return ret;
     }
@@ -158,13 +159,16 @@ public class Attribute
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
 
+        Team TheTeam = (Team)E[1];
+        Collection<Player> Players = (Collection<Player>)E[2];
+        Collection<Tour> Tours = (Collection<Tour>)E[3];
+
         try
         {
             //Email/тел.
             if ((string)w1[0] == "Email" && (string)w2[0] == "тел")
             {
-                ret.Add(EmailWord[1]);
-                ret.Add("");
+                TheTeam.email = (string)EmailWord[1];
             }
             else throw new Exception("Wrong e-mail/phone description!!!");
         }
@@ -172,6 +176,10 @@ public class Attribute
         {
             ret[0] = e;
         }
+
+        ret.Add(TheTeam);
+        ret.Add(Players);
+        ret.Add(Tours);
 
         return ret;
     }
@@ -179,26 +187,7 @@ public class Attribute
     public Collection<object> Email3(Collection<object> w1, Collection<object> s1, Collection<object> w2, Collection<object> d1,
     Collection<object> c1, Collection<object> nl, Collection<object> E)
     {
-        Collection<object> ret = new Collection<object>();
-        ret.Add(null);
-
-        try
-        {
-            //Email/тел.
-            if ((string)w1[0] == "Email" && (string)w2[0] == "тел")
-            {
-                ret.Add("");
-                ret.Add("");
-            }
-            else throw new Exception("Wrong e-mail/phone description!!!");
-        }
-        catch (Exception e)
-        {
-            ret[0] = e;
-        }
-
-
-        return ret;
+        return E;
     }
 
     public Collection<object> Email5(Collection<object> w1, Collection<object> s1, Collection<object> w2, Collection<object> d1,
@@ -207,13 +196,16 @@ public class Attribute
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
 
+        Team TheTeam = (Team)E[1];
+        Collection<Player> Players = (Collection<Player>)E[2];
+        Collection<Tour> Tours = (Collection<Tour>)E[3];
+
         try
         {
             //Email/тел.
             if ((string)w1[0] == "Email" && (string)w2[0] == "тел")
             {
-                ret.Add("");
-                ret.Add(Phone[1]);
+                TheTeam.phone = (string)Phone[1];
             }
             else throw new Exception("Wrong e-mail/phone description!!!");
         }
@@ -221,6 +213,10 @@ public class Attribute
         {
             ret[0] = e;
         }
+
+        ret.Add(TheTeam);
+        ret.Add(Players);
+        ret.Add(Tours);
 
         return ret;
     }
@@ -230,50 +226,41 @@ public class Attribute
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
 
-        Team TheTeam;
-        if (E[1] == null) TheTeam = new Team(); else TheTeam = (Team)E[1];
-        string doubledeclare = "";
+        Team TheTeam = (Team)E[1];
+        Collection<Player> Players = (Collection<Player>)E[2];
+        Collection<Tour> Tours = (Collection<Tour>)E[3];
 
-        if ((string)W1[1] == "Название команды")
+        string doubledeclare = null;
+        string title = ((string)W1[1]).Trim();
+
+        if (title == "Название команды")
         {
             if (TheTeam.name == null) TheTeam.name = (string)W2[1];
             else doubledeclare = (string)W1[1];
         }
-        else
-            if ((string)W1[1] == "Возрастная категория")
-            {
-                if (TheTeam.age_category == null) TheTeam.age_category = (string)W2[1];
-                else doubledeclare = (string)W1[1];
-            }
-            else
-                if ((string)W1[1] == "Город")
-                {
-                    if (TheTeam.city == null) TheTeam.city = (string)W2[1];
-                    else doubledeclare = (string)W1[1];
-                }
-                else
-                    if ((string)W1[1] == "ID в рейтинге")
-                    {
-                        if (TheTeam.global_id == null) TheTeam.global_id = (string)W2[1];
-                        else doubledeclare = (string)W1[1];
-                    }
-                    else
-                        if ((string)W1[1] == "Email/тел.")
-                        {
-                            if (TheTeam.email == null) TheTeam.email = (string)W2[1];
-                                else doubledeclare = (string)W1[1];
-                        }
-                        else
-                            ret[0] = "WRONG DECLARE!";
+        else if (title == "Возрастная категория")
+        {
+            if (TheTeam.age_category == null) TheTeam.age_category = (string)W2[1];
+            else doubledeclare = (string)W1[1]; //TODO
+        }
+        else if (title == "Город")
+        {
+            if (TheTeam.city == null) TheTeam.city = (string)W2[1];
+            else doubledeclare = (string)W1[1];
+        }
+        else if (title == "ID в рейтинге")
+        {
+            if (TheTeam.global_id == null) TheTeam.global_id = (string)W2[1];
+            else doubledeclare = (string)W1[1];
+        }
+
+        if (doubledeclare != null)
+            ret[0] = new Exception("Double DECLARE! " + doubledeclare);
 
         ret.Add(TheTeam);
+        ret.Add(Players);
+        ret.Add(Tours);
         return ret;
-    }
-
-    public Collection<object> E1(Collection<object> W1, Collection<object> c1, Collection<object> p2, Collection<object> nl, Collection<object> E)
-    {
-        // what the hell here?
-        return E;
     }
 
     public Collection<object> E2(Collection<object> W1, Collection<object> c1, Collection<object> nl, Collection<object> E)
@@ -285,32 +272,31 @@ public class Attribute
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
-        ret.Add(P);
+        ret.Add(new Team());
+        ret.Add(P[1]);
+        ret.Add(P[2]);
         return ret;
     }
 
-    public Collection<object> P1(Collection<object> s1, Collection<object> n1, Collection<object> Name, 
-        Collection<object> c1, Collection<object> Date, Collection<object> nl, Collection<object> P)
+    public Collection<object> P1(Collection<object> s1, Collection<object> n1, Collection<object> Name,
+        Collection<object> c1, Collection<object> Space, Collection<object> Date, Collection<object> nl, Collection<object> P)
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
 
-        try
-        {
+            Collection<Player> Players = (Collection<Player>)P[1];
+            Collection<Tour> Tours = (Collection<Tour>)P[2];
+
             int parsed = 0;
             int.TryParse((string)n1[0], out parsed);
             
             Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], false.ToString(), "");
 
-            Collection<Player> Players = (Collection<Player>)P[1];
             Players.Add(ThePlayer);
 
             ret.Add(Players);
-        }
-        catch (Exception e)
-        {
-            ret[0] = e;
-        }
+            ret.Add(Tours);
+        
         return ret;
     }
 
@@ -321,14 +307,16 @@ public class Attribute
         ret.Add(null);
 
         try
-        {  
+        {
+            Collection<Player> Players = (Collection<Player>)P[1];
+            Collection<Tour> Tours = (Collection<Tour>)P[2];
+
             int parsed = 0;
             int.TryParse((string)n1[0], out parsed);
             bool is_capitan = ((string)sym[0] == "+" || (string)sym[0] == "К" || (string)sym[0] == "K") ? true : false;
             Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], is_capitan.ToString(), null);
 
-            Collection<Player> Players = (Collection<Player>)P[1];
-
+            
             if (is_capitan)
                 foreach (var Vasya in Players)
                     if (Vasya.is_captain == is_capitan.ToString()) throw new Exception("More than one capitan!");
@@ -336,6 +324,7 @@ public class Attribute
             Players.Add(ThePlayer);
 
             ret.Add(Players);
+            ret.Add(Tours);
         }
         catch (Exception e)
         {
@@ -351,21 +340,17 @@ public class Attribute
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
 
-        try
-        {
+            Collection<Player> Players = (Collection<Player>)P[1];
+            Collection<Tour> Tours = (Collection<Tour>)P[2];
+
             int parsed = 0;
             int.TryParse((string)n1[0], out parsed);
             Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], false.ToString(), (string)nE[1]);
 
-            Collection<Player> Players = (Collection<Player>)P[1];
             Players.Add(ThePlayer);
 
             ret.Add(Players);
-        }
-        catch (Exception e)
-        {
-            ret[0] = e;
-        }
+            ret.Add(Tours);
         return ret;
     }
 
@@ -378,22 +363,24 @@ public class Attribute
 
         try
         {
+            Collection<Player> Players = (Collection<Player>)P[1];
+            Collection<Tour> Tours = (Collection<Tour>)P[2];
+
             int parsed = 0;
             int.TryParse((string)n1[0], out parsed);
             bool is_capitan = ((string)sym[0] == "+" || (string)sym[0] == "К" || (string)sym[0] == "K") ? true : false;
 
             Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], is_capitan.ToString(), (string)n5[0]);
-
-            Collection<Player> Players = (Collection<Player>)P[1];
-            
+           
             // check bug
             if (is_capitan)
             foreach (var Vasya in Players)
-                if (Vasya.is_captain == is_capitan.ToString()) throw new System.Exception("More than one capitan!");
+                if (Vasya.is_captain == is_capitan.ToString()) throw new System.Exception("More than one captain!");
 
             Players.Add(ThePlayer);
 
             ret.Add(Players);
+            ret.Add(Tours);
         }
         catch (Exception e)
         {
@@ -408,17 +395,12 @@ public class Attribute
     }
 
 
-    public Collection<object> Q1(Collection<object> s, Collection<object> n1, Collection<object> nl, Collection<object> Q)
-    {
-        Collection<object> ret = new Collection<object>();
-        return ret;
-    }
-
     public Collection<object> NextH(Collection<object> H)
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
-        ret.Add(H);
+        ret.Add(new Collection<Player>());
+        ret.Add(H[1]);
         return ret;
     }
 
@@ -563,7 +545,7 @@ public class Attribute
             
         try
         {
-            ret.Add((string)w1[1]+"@"+(string)w2[1]);
+            ret.Add((string)w1[1]+(string)s[0]+(string)w2[1]);
         }
         catch (Exception e)
         {
@@ -594,7 +576,8 @@ public class Attribute
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
-
+        ret.Add("");
+        
         return ret;
     }
 
@@ -602,6 +585,7 @@ public class Attribute
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
+        ret.Add((string)n[0]);
 
         return ret;
     }
@@ -610,7 +594,8 @@ public class Attribute
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
-
+        ret.Add("");
+        
         return ret;
     }
 
@@ -619,6 +604,7 @@ public class Attribute
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
+        ret.Add("");
         
         return ret;
     }
@@ -627,7 +613,8 @@ public class Attribute
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
-
+        ret.Add("");
+        
         return ret;
     }
 

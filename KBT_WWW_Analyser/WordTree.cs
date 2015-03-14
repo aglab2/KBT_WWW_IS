@@ -119,6 +119,7 @@ namespace KBT_WWW_IS
                     catch (Exception)
                     {
                         Console.WriteLine("Fuck you, bad guy! Use 0 for exceptions!!!!!");
+                        Console.WriteLine("Function " + Name.rule_l.attrrules.Name);
                         Console.WriteLine("BTW, it is " + ret[0]);
                     }
                     if (err != null) throw err;
@@ -127,7 +128,7 @@ namespace KBT_WWW_IS
                 catch (Exception e)
                 {
                     Console.WriteLine(e.ToString());
-                    throw new Exception("Bad things happened master. Function " + Name.rule_l.attrrules);
+                    throw new Exception("Bad things happened master. Function " + Name.rule_l.attrrules.Name);
                 }
             }
         }
