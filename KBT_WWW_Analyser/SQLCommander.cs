@@ -12,24 +12,24 @@ namespace KBT_WWW_IS
         SqlConnection conn;
         public SQLCommander(string connectionString)
         {
-            conn = new SqlConnection(connectionString);
-            conn.Open();
+            //conn = new SqlConnection(connectionString);
+            //conn.Open();
         }
 
         [SqlProcedure()]
         public void Execute(string name, Collection<Tuple<string, string>> param)
         {
-            SqlCommand cmd = new SqlCommand(name, conn);
+            //SqlCommand cmd = new SqlCommand(name, conn);
 
             Console.Write("exec " + name);
 
-            cmd.CommandType = CommandType.StoredProcedure;
+            //cmd.CommandType = CommandType.StoredProcedure;
 
             bool fist = true;
 
             foreach (var i in param)
             {
-                cmd.Parameters.Add(new SqlParameter(i.Item1, i.Item2));
+                //cmd.Parameters.Add(new SqlParameter(i.Item1, i.Item2));
                 if (fist)
                 {
                     fist = false;
@@ -45,7 +45,7 @@ namespace KBT_WWW_IS
             
             try
             {
-                cmd.ExecuteNonQuery();
+                //cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
