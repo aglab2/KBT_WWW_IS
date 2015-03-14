@@ -342,7 +342,12 @@ AS
 	END
 GO
 
+--1) дают имя игрока и дату рождеия и номер тура, номер турнира, город турнира - добавить игрока в данный тур, если такого тура нет, создать его
+
+--2) создать тур(название турнира, город проведения, номер тура)
+
 CREATE PROCEDURE addPlayer
+	@rate_id INTEGER = NULL,
 	@team_name NVARCHAR(max),
 	@name NVARCHAR(max),
 	@birthday SMALLDATETIME = NULL,
