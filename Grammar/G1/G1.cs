@@ -62,7 +62,7 @@ public class Attribute
     const string city = "Москва";
 
     public Collection<object> S1(Collection<object> w0, Collection<object> w1, Collection<object> k1, Collection<object> w2, Collection<object> k2,
-         Collection<object> w3, Collection<object> nl, Collection<object> D)
+         Collection<object> w3, Collection<object> nl, Collection<object> E)
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
@@ -77,76 +77,6 @@ public class Attribute
         arg.Add(Tuple.Create("@name", (string)w1[1]));
         arg.Add(Tuple.Create("@password", (string)w2[0]));
         ret.Add(comm);
-        /*
-        arg = new Collection<Tuple<string, string>>();
-        comm = new Tuple<string, Collection<Tuple<string, string>>>("addGameRound", arg);
-        arg.Add(Tuple.Create("@gamenumber", "1"));
-        arg.Add(Tuple.Create("@city", city));
-        arg.Add(Tuple.Create("@tournament_name", name));
-        ret.Add(comm);
-        */
-
-        foreach (Player i in caps)
-        {
-            arg = new Collection<Tuple<string, string>>();
-            comm = new Tuple<string, Collection<Tuple<string, string>>>("addPlayer", arg);
-            arg.Add(Tuple.Create("@team_name", TheTeam.name.Trim()));
-            arg.Add(Tuple.Create("@name", i.name.Trim()));
-            arg.Add(Tuple.Create("@rate_id", i.rate_id.Trim()));
-            if (i.bday != "") arg.Add(Tuple.Create("@birthday", i.bday));
-            arg.Add(Tuple.Create("@is_captain", i.is_captain));
-            ret.Add(comm);
-
-
-            arg = new Collection<Tuple<string, string>>();
-            comm = new Tuple<string, Collection<Tuple<string, string>>>("addPlayer2Season", arg);
-            arg.Add(Tuple.Create("@player_name", i.name.Trim()));
-            if (i.bday != "") arg.Add(Tuple.Create("@player_birthday", i.bday));
-            ret.Add(comm);
-        }
-
-        foreach (Tour t in Tours)
-        {
-            arg = new Collection<Tuple<string, string>>();
-            comm = new Tuple<string, Collection<Tuple<string, string>>>("addPlayer", arg);
-            arg.Add(Tuple.Create("@team_name", TheTeam.name.Trim()));
-            arg.Add(Tuple.Create("@name", i.name.Trim()));
-            arg.Add(Tuple.Create("@rate_id", i.rate_id.Trim()));
-            if (i.bday != "") arg.Add(Tuple.Create("@birthday", i.bday));
-            arg.Add(Tuple.Create("@is_captain", i.is_captain));
-            ret.Add(comm);
-
-        }
-
-        foreach (Team i in teams)
-        {
-            arg = new Collection<Tuple<string, string>>();
-            comm = new Tuple<string, Collection<Tuple<string, string>>>("addTeam", arg);
-            arg.Add(Tuple.Create("@name", i.name.Trim()));
-            if (i.email != "") arg.Add(Tuple.Create("@email", i.email.Trim()));
-            arg.Add(Tuple.Create("@city", i.city.Trim())); //TODO
-            ret.Add(comm);
-        }
-
-
-        foreach (Question q in questions)
-        {
-            foreach (Answer a in q.ans)
-            {
-                if (a.team == null) throw new Exception("Num " + a.teamnum + " is not correct!");
-                arg = new Collection<Tuple<string, string>>();
-                comm = new Tuple<string, Collection<Tuple<string, string>>>("addAnswer", arg);
-                arg.Add(Tuple.Create("@team_name", a.team.Trim()));
-                arg.Add(Tuple.Create("@question_num", q.num.ToString()));
-                arg.Add(Tuple.Create("@answer_text", a.answer.Trim()));
-                arg.Add(Tuple.Create("@is_valid", a.state.ToString()));
-                arg.Add(Tuple.Create("@tournament_name", name));
-                arg.Add(Tuple.Create("@city", city));
-                arg.Add(Tuple.Create("@gamenumber", "1"));
-
-                ret.Add(comm);
-            }
-        }
 
         return ret;
     }
