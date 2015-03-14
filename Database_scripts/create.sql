@@ -279,7 +279,7 @@ GO
 
 CREATE PROCEDURE addTeam
 	@name NVARCHAR(max),
-	@phone INT = NULL,
+	@phone NVARCHAR(max) = NULL,
 	@email NVARCHAR(max) = NULL,
 	@city NVARCHAR(max)
 AS
@@ -342,75 +342,13 @@ AS
 	END
 GO
 
-/* процедура добавления игрока в тур. Не существующий тур создается */
-/* Требуется: созданный игрок, созданная команда, созданный город, созданный турнир */
-CREATE PROCEDURE addPlayer2GameRound
-	@player_name NVARCHAR(max),
-	@player_birthday SMALLDATETIME = NULL,
-	@player_team_name NVARCHAR(max),
-	@tour_number INTEGER,
-	@tournament_name NVARCHAR(max),
-	@tournament_city NVARCHAR(max),
-	@is_legioner BIT = 0
-AS
-	-- получаем ID игрока 
-	DECLARE @player_id INT;
-	IF @player_birthday IS NULL
-		SET @player_id = (SELECT id FROM Player WHERE name = @player_name);
-	ELSE
-		SET @player_id = (SELECT id FROM Player WHERE name = @player_name AND birthday = @player_birthday)
-	IF @player_id IS NULL
-		raiserror('No such player', 18, -1);
-
-		
-	-- получаем ID города
-	DECLARE @city_id INT;
-	SET @city_id = (SELECT id FROM Address WHERE name = @tournament_city);
-	IF @city_id IS NULL
-		raiserror('No such city', 18, -1);
-
-
-	-- получаем ID турнира
-	DECLARE @tournament_id INT;
-	SET @tournament_id = (SELECT id FROM Tournament WHERE name = @tournament_name AND address_id = @city_id);
-	IF @tournament_id IS NULL
-		raiserror('No such tournament', 18, -1);
-
-
-	-- поиск/создание! тура
-	DECLARE @gameround_id INT;
-	SET @gameround_id = (SELECT id FROM GameRound WHERE tournament_id = @tournament_id AND gamenumber = @tour_number);
-	IF @gameround_id IS NULL
-	BEGIN
-		INSERT INTO GameRound(tournament_id, gamenumber) VALUES (@tournament_id, @tour_number);
-	END
-	SET @gameround_id = (SELECT id FROM GameRound WHERE tournament_id = @tournament_id AND gamenumber = @tour_number);
-
-
-	-- получаем ID команды
-	DECLARE @player_team_id INT;
-	SET @player_team_id = (SELECT id FROM Team WHERE name = @player_team_name)
-	IF @player_team_id IS NULL
-		raiserror('No such team', 18, -1);
-
-
-	-- создаем связь между игроком, командой и туром
-	INSERT INTO PlayerTeamGameround(player_id, gameround_id, team_id) VALUES (@player_id, @gameround_id, @player_team_id);
-	
-	IF @is_legioner = 0
-	BEGIN
-		UPDATE Player
-		SET Player.team_id = @player_team_id
-		WHERE Player.id = @player_id
-	END
-GO
-
 CREATE PROCEDURE addPlayer
 	@rate_id INTEGER = NULL,
-	@team_name NVARCHAR(max),
+	@team_name NVARCHAR(max) = NULL,
 	@name NVARCHAR(max),
 	@birthday SMALLDATETIME = NULL,
-	@is_captain BIT
+	@is_captain BIT = 0,
+	@is_legioner BIT = 0
 AS
 	DECLARE @player_id INT;
 	IF @birthday IS NULL
@@ -419,22 +357,30 @@ AS
 		SET @player_id = (SELECT id FROM Player WHERE name = @name AND birthday = @birthday); 
 
 	DECLARE @team_id INT;
-	SET @team_id = (SELECT id FROM Team WHERE name = @team_name);
-	IF @team_id IS NULL
-		raiserror('No such team!', 18, -1)
+	IF @is_legioner = 0 --not legioner
+	BEGIN
+		SET @team_id = (SELECT id FROM Team WHERE name = @team_name);
+		IF @team_id IS NULL
+			raiserror('No such team!', 18, -1)
+	END
+	ELSE 
+		SET @team_id = NULL;
+
 	IF @player_id IS NULL
-	BEGIN
-		INSERT INTO Player(team_id, name, birthday) VALUES (@team_id, @name, @birthday);
-	END
+		BEGIN
+			INSERT INTO Player(team_id, name, birthday) VALUES (@team_id, @name, @birthday);
+		END
 	ELSE
-	BEGIN
-		UPDATE Player SET birthday = @birthday WHERE id = @player_id;
-	END
+		BEGIN
+			UPDATE Player SET birthday = @birthday WHERE id = @player_id;
+		END
+
 	IF @is_captain = 1
 	BEGIN
 		SET @player_id = (SELECT id FROM Player WHERE name = @name);
 		UPDATE Team SET captain_id = @player_id WHERE id = @team_id;
 	END
+	
 GO
 
 CREATE PROCEDURE addPlayer2Season
@@ -543,5 +489,74 @@ AS
 	IF @answer_id IS NULL
 	BEGIN
 		INSERT Answer (gameround_id, team_id, question_id, question_num, answer_text, is_valid) VALUES (@gameround_id, @team_id, NULL, @question_num, @answer_text, @is_valid);
+	END
+GO
+
+
+/* процедура добавления игрока в тур. Не существующий тур создается */
+/* Требуется: созданный игрок, созданная команда, созданный город, созданный турнир */
+CREATE PROCEDURE addPlayer2GameRound
+	@player_name NVARCHAR(max),
+	@player_birthday SMALLDATETIME = NULL,
+	@player_team_name NVARCHAR(max) = NULL,
+	@tour_number INTEGER,
+	@tournament_name NVARCHAR(max),
+	@tournament_city NVARCHAR(max),
+	@is_legioner BIT = 0
+AS
+	-- получаем ID игрока 
+	DECLARE @player_id INT;
+	IF @player_birthday IS NULL
+		SET @player_id = (SELECT id FROM Player WHERE name = @player_name);
+	ELSE
+		SET @player_id = (SELECT id FROM Player WHERE name = @player_name AND birthday = @player_birthday)
+	IF @player_id IS NULL
+		raiserror('No such player', 18, -1);
+
+		
+	-- получаем ID города
+	DECLARE @city_id INT;
+	SET @city_id = (SELECT id FROM Address WHERE name = @tournament_city);
+	IF @city_id IS NULL
+		raiserror('No such city', 18, -1);
+
+
+	-- получаем ID турнира
+	DECLARE @tournament_id INT;
+	SET @tournament_id = (SELECT id FROM Tournament WHERE name = @tournament_name AND address_id = @city_id);
+	IF @tournament_id IS NULL
+		raiserror('No such tournament', 18, -1);
+
+
+	-- поиск/создание! тура
+	DECLARE @gameround_id INT;
+	SET @gameround_id = (SELECT id FROM GameRound WHERE tournament_id = @tournament_id AND gamenumber = @tour_number);
+	IF @gameround_id IS NULL
+	BEGIN
+		INSERT INTO GameRound(tournament_id, gamenumber) VALUES (@tournament_id, @tour_number);
+	END
+	SET @gameround_id = (SELECT id FROM GameRound WHERE tournament_id = @tournament_id AND gamenumber = @tour_number);
+
+
+	
+	-- получаем ID команды
+	DECLARE @player_team_id INT;
+	SET @player_team_id = (SELECT id FROM Team WHERE name = @player_team_name)
+	IF @player_team_id IS NULL
+		raiserror('No such team', 18, -1);
+
+
+	-- создаем связь между игроком, командой и туром
+	DECLARE @event_node INT;
+	SET @event_node = (SELECT player_id FROM PlayerTeamGameround WHERE player_id=@player_id AND gameround_id=@gameround_id AND team_id=@player_team_id)
+	
+	IF @event_node IS NULL
+		INSERT INTO PlayerTeamGameround(player_id, gameround_id, team_id) VALUES (@player_id, @gameround_id, @player_team_id);
+	
+	IF @is_legioner = 0
+	BEGIN
+		UPDATE Player
+		SET Player.team_id = @player_team_id
+		WHERE Player.id = @player_id
 	END
 GO

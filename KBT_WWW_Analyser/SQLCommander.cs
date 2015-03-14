@@ -27,6 +27,8 @@ namespace KBT_WWW_IS
 
             bool fist = true;
 
+            Collection<int> play = new Collection<int>();
+           
             foreach (var i in param)
             {
                 //cmd.Parameters.Add(new SqlParameter(i.Item1, i.Item2));

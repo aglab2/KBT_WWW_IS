@@ -17,10 +17,11 @@ namespace KBT_WWW_IS
             {
                 File.Delete(exeFile);
             }catch(Exception){}
+
             CSharpCodeProvider provider = new CSharpCodeProvider();
             CompilerParameters cp = new CompilerParameters();
             cp.ReferencedAssemblies.Add("System.dll");
-            cp.GenerateExecutable = false;
+            cp.GenerateExecutable = false; // thet's why dll
             cp.OutputAssembly = exeFile;
             cp.GenerateInMemory = false;
             CompilerResults cr = provider.CompileAssemblyFromFile(cp, sourceFile);

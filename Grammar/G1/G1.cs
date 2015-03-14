@@ -17,12 +17,12 @@ public class Attribute
 
         public Team()
         {
-            this.global_id = null;
-            this.name = null;
-            this.email = null;
-            this.city = null;
-            this.age_category = null;
-            this.phone = null;
+            this.global_id = "";
+            this.name = "";
+            this.email = "";
+            this.city = "";
+            this.age_category = "";
+            this.phone = "";
         }
     }
 
@@ -33,15 +33,17 @@ public class Attribute
         public string name;
         public string bday;
         public string is_captain;
+        public string is_legioner;
         public string rate_id;
 
-        public Player(int num, string name, string bday, string is_captain, string rate_id)
+        public Player(int num, string name, string bday, string is_captain, string is_legioner, string rate_id)
         {
             this.num = num;
-            this.team_global_id = null;
+            this.team_global_id = "";
             this.name = name;
             this.bday = bday;
             this.is_captain = is_captain;
+            this.is_legioner = is_legioner;
             this.rate_id = rate_id;
         }
     }
@@ -63,7 +65,7 @@ public class Attribute
 
     public Collection<object> S1(Collection<object> w0, Collection<object> w1, Collection<object> k1, Collection<object> w2, Collection<object> k2,
          Collection<object> w3, Collection<object> nl, Collection<object> E)
-    {
+    { 
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
 
@@ -71,12 +73,78 @@ public class Attribute
         Collection<Player> Players = (Collection<Player>)E[2];
         Collection<Tour> Tours = (Collection<Tour>)E[3];
 
+        string RegCardNumber = (string)w0[0];
+        string TournamentName = (string)w1[1];
+        string TeamTournamentPassword = (string)w2[0];
+
+
         Collection<Tuple<string, string>> arg = new Collection<Tuple<string, string>>();
         Tuple<string, Collection<Tuple<string, string>>> comm = new Tuple<string, Collection<Tuple<string, string>>>("addTournament", arg);
         arg.Add(Tuple.Create("@city", city));
-        arg.Add(Tuple.Create("@name", (string)w1[1]));
-        arg.Add(Tuple.Create("@password", (string)w2[0]));
+        arg.Add(Tuple.Create("@name", TournamentName));
+        arg.Add(Tuple.Create("@password", TeamTournamentPassword));
         ret.Add(comm);
+
+        arg = new Collection<Tuple<string, string>>();
+        comm = new Tuple<string, Collection<Tuple<string, string>>>("addTeam", arg);
+        arg.Add(Tuple.Create("@name", TheTeam.name));
+        arg.Add(Tuple.Create("@phone", TheTeam.phone));
+        arg.Add(Tuple.Create("@email", TheTeam.email));
+        arg.Add(Tuple.Create("@city", TheTeam.city));
+        ret.Add(comm);
+
+
+        arg = new Collection<Tuple<string, string>>();
+        comm = new Tuple<string, Collection<Tuple<string, string>>>("addTeam2Tournament", arg);
+        arg.Add(Tuple.Create("@team_name", TheTeam.name));
+        arg.Add(Tuple.Create("@tournament_name", TournamentName));
+        arg.Add(Tuple.Create("@tournament_city", city));
+        arg.Add(Tuple.Create("@regcard_number", RegCardNumber)); 
+        ret.Add(comm);
+
+
+        foreach (var Player in Players)
+        {
+            arg = new Collection<Tuple<string, string>>();
+            comm = new Tuple<string, Collection<Tuple<string, string>>>("addPlayer", arg);
+            arg.Add(Tuple.Create("@rate_id", Player.rate_id));
+            if (Player.is_legioner != true.ToString())
+                arg.Add(Tuple.Create("@team_name", TheTeam.name));
+            arg.Add(Tuple.Create("@name", Player.name));
+            arg.Add(Tuple.Create("@birthday", Player.bday));
+            arg.Add(Tuple.Create("@is_captain", Player.is_captain));
+            arg.Add(Tuple.Create("@is_legioner", Player.is_legioner));
+            ret.Add(comm);
+
+
+            arg = new Collection<Tuple<string, string>>();
+            comm = new Tuple<string, Collection<Tuple<string, string>>>("addPlayer2Season", arg);
+            arg.Add(Tuple.Create("@player_name", Player.name));
+            arg.Add(Tuple.Create("@player_birthday", Player.bday));
+            /*
+            arg.Add(Tuple.Create("@season_year", city));
+            arg.Add(Tuple.Create("@schoolgrade", TeamTournamentPassword)); //CORRECT???
+            */
+            ret.Add(comm);
+        }
+
+        foreach (var Tour in Tours)
+        {
+            foreach (var Player in Tour.players)
+            {
+                arg = new Collection<Tuple<string, string>>();
+                comm = new Tuple<string, Collection<Tuple<string, string>>>("addPlayer2GameRound", arg);
+                arg.Add(Tuple.Create("@player_name", Player.name));
+                arg.Add(Tuple.Create("@player_birthday", Player.bday));
+                arg.Add(Tuple.Create("@player_team_name", TheTeam.name));
+                arg.Add(Tuple.Create("@tour_number", Tour.num.ToString()));
+                arg.Add(Tuple.Create("@tournament_name", TournamentName));
+                arg.Add(Tuple.Create("@tournament_city", city));
+                if (Player.is_legioner == true.ToString())
+                    arg.Add(Tuple.Create("@is_legioner", Player.is_legioner));
+                ret.Add(comm);
+            }
+        }
 
         return ret;
     }
@@ -95,22 +163,22 @@ public class Attribute
 
         if (title == "Название команды")
         {
-            if (TheTeam.name == null) TheTeam.name = (string)W2[1];
+            if (TheTeam.name == "") TheTeam.name = (string)W2[1];
             else doubledeclare = (string)W1[1];
         }
         else if (title == "Возрастная категория")
         {
-            if (TheTeam.age_category == null) TheTeam.age_category = (string)W2[1];
+            if (TheTeam.age_category == "") TheTeam.age_category = (string)W2[1];
             else doubledeclare = (string)W1[1]; //TODO
         }
         else if (title == "Город")
         {
-            if (TheTeam.city == null) TheTeam.city = (string)W2[1];
+            if (TheTeam.city == "") TheTeam.city = (string)W2[1];
             else doubledeclare = (string)W1[1];
         }
         else if (title == "ID в рейтинге")
         {
-            if (TheTeam.global_id == null) TheTeam.global_id = (string)W2[1];
+            if (TheTeam.global_id == "") TheTeam.global_id = (string)W2[1];
             else doubledeclare = (string)W1[1];
         }
 
@@ -243,22 +311,22 @@ public class Attribute
 
         if (title == "Название команды")
         {
-            if (TheTeam.name == null) TheTeam.name = (string)W2[1];
+            if (TheTeam.name == "") TheTeam.name = (string)W2[1];
             else doubledeclare = (string)W1[1];
         }
         else if (title == "Возрастная категория")
         {
-            if (TheTeam.age_category == null) TheTeam.age_category = (string)W2[1];
+            if (TheTeam.age_category == "") TheTeam.age_category = (string)W2[1];
             else doubledeclare = (string)W1[1]; //TODO
         }
         else if (title == "Город")
         {
-            if (TheTeam.city == null) TheTeam.city = (string)W2[1];
+            if (TheTeam.city == "") TheTeam.city = (string)W2[1];
             else doubledeclare = (string)W1[1];
         }
         else if (title == "ID в рейтинге")
         {
-            if (TheTeam.global_id == null) TheTeam.global_id = (string)W2[1];
+            if (TheTeam.global_id == "") TheTeam.global_id = (string)W2[1];
             else doubledeclare = (string)W1[1];
         }
 
@@ -298,7 +366,7 @@ public class Attribute
             int parsed = 0;
             int.TryParse((string)n1[0], out parsed);
             
-            Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], false.ToString(), "");
+            Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], false.ToString(), false.ToString(), "");
             Players.Add(ThePlayer);
 
             foreach (Tour t in Tours)
@@ -325,11 +393,15 @@ public class Attribute
             int parsed = 0;
             int.TryParse((string)n1[0], out parsed);
             bool is_capitan = ((string)sym[0] == "+" || (string)sym[0] == "К" || (string)sym[0] == "K") ? true : false;
-            Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], is_capitan.ToString(), null);
+            bool is_legioner = ((string)sym[0] == "л" || (string)sym[0] == "Л" || (string)sym[0] == "$") ? true : false;
+
+            Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], is_capitan.ToString(), is_legioner.ToString(), "");
 
             foreach (Tour t in Tours)
+            {
                 if (t.playernums.Contains(ThePlayer.num))
                     t.players.Add(ThePlayer);
+            }
             
             if (is_capitan)
                 foreach (var Vasya in Players)
@@ -359,7 +431,7 @@ public class Attribute
 
             int parsed = 0;
             int.TryParse((string)n1[0], out parsed);
-            Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], false.ToString(), (string)nE[1]);
+            Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], false.ToString(), false.ToString(), (string)nE[1]);
             Players.Add(ThePlayer);
 
             foreach (Tour t in Tours)
@@ -386,8 +458,8 @@ public class Attribute
             int parsed = 0;
             int.TryParse((string)n1[0], out parsed);
             bool is_capitan = ((string)sym[0] == "+" || (string)sym[0] == "К" || (string)sym[0] == "K") ? true : false;
-
-            Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], is_capitan.ToString(), (string)n5[0]);
+            bool is_legioner = ((string)sym[0] == "л" || (string)sym[0] == "Л" || (string)sym[0] == "$") ? true : false;
+            Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], is_capitan.ToString(), is_legioner.ToString(), (string)n5[1]);
 
             foreach (Tour t in Tours)
                 if (t.playernums.Contains(ThePlayer.num))
@@ -422,6 +494,7 @@ public class Attribute
         ret.Add(null);
         ret.Add(new Collection<Player>());
         ret.Add(H[1]);
+
         return ret;
     }
 
@@ -436,9 +509,18 @@ public class Attribute
             
             int parsed = 0;
             int.TryParse((string)n1[0], out parsed);
-            Tour TheTour = new Tour(parsed, PlayerNamesN);
 
+            while (PlayerNamesN[0] > 10)
+            {
+                PlayerNamesN.Add(PlayerNamesN[0] % 10);
+                PlayerNamesN[0] /= 10;
+            }
+
+            Tour TheTour = new Tour(parsed, PlayerNamesN);
             Collection<Tour> Tours = (Collection<Tour>)H[1];
+
+           
+            
             Tours.Add(TheTour);
 
             ret.Add(Tours);
