@@ -5,6 +5,7 @@ DROP PROCEDURE addTeam2Tournament;
 DROP PROCEDURE addPlayer2Season;
 DROP PROCEDURE addGameRound;
 DROP PROCEDURE addAnswer;
+DROP PROCEDURE addPlayer2GameRound;
 
 DROP TABLE AgeCategory;
 DROP TABLE ExternalT;
