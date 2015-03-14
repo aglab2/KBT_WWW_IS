@@ -29,7 +29,7 @@ namespace KBT_WWW_IS
             if (!File.Exists(path_in)) return null;
 
             string path_dll = MakePathName(FileName, ".dll");
-
+            /*
             try
             {
                 var proc = Process.Start("compile\\csc.exe", "/target:library /out:" + path_dll + " " + path_in);
@@ -38,6 +38,13 @@ namespace KBT_WWW_IS
             catch (Exception E)
             {
                 throw new Exception("Program components not found!\n" + E.Message);
+            }
+            */
+
+            if (!CSCompiler.CompileCSharpCode(path_in, path_dll))
+            {
+                Console.WriteLine("Can't compile your shit. See ya!");
+                Environment.Exit(1);
             }
 
             Assembly assembly = Assembly.LoadFrom(path_dll);

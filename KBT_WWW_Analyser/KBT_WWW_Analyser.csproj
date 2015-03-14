@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinSerialize.cs" />
+    <Compile Include="CSCompiler.cs" />
     <Compile Include="GAnalyser.cs" />
     <Compile Include="Grammar.cs" />
     <Compile Include="Lexer.cs" />
