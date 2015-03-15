@@ -1,0 +1,1374 @@
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\DO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\DO.zip_temp.txt\AnsM.txt in line 1
+D001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\DO.zip_temp.txt\AnsV.txt in line 1
+D501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\DO.zip_temp.txt\D502-i.txt in line 10
+Email/тел.: +7(926)354-15-49/volokno@inbox.ru
+                            ^
+Found symbol / but expected nl @ w n ] [ # , . : p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\DU.zip_temp.txt\AnsM.txt in line 1
+C001	11
+       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\DU.zip_temp.txt\AnsV.txt in line 1
+C501	6
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\DU.zip_temp.txt\C003-0-19.txt in line 1
+подаем апелляцию на снятие вопроса №19, так как в вопросе использована неправильная дата выхода сериала "Смешарики". 
+                                                                                                                    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\EG.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\EG.zip_temp.txt\AnsM.txt in line 1
+I001	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\EG.zip_temp.txt\AnsV.txt in line 1
+I501	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\IS.zip_temp.txt\IS\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\IS.zip_temp.txt\IS\AnsM.txt in line 1
+N001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\IS.zip_temp.txt\IS\AnsV.txt in line 1
+N501	
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\IV.zip_temp.txt\IV\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\IV.zip_temp.txt\IV\AnsM.txt in line 1
+R001	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\IV.zip_temp.txt\IV\AnsV.txt in line 1
+R501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\KH.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\KH.zip_temp.txt\AnsM.txt in line 1
+P001	
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\KH.zip_temp.txt\AnsV.txt in line 1
+P501	
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\KO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\KO.zip_temp.txt\AnsM.txt in line 1
+F001	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\KO.zip_temp.txt\AnsV.txt in line 1
+F501	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\LO.zip_temp.txt\LO\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\LO.zip_temp.txt\LO\AnsM.txt in line 1
+L001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\LO.zip_temp.txt\LO\AnsV.txt in line 1
+L501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\PO.zip_temp.txt\AnsM.txt in line 1
+K001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\PP.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\PP.zip_temp.txt\AnsM.txt in line 1
+T001	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\PP.zip_temp.txt\AnsV.txt in line 1
+T501	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\PS.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\PS.zip_temp.txt\AnsM.txt in line 1
+N101	3
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\PS.zip_temp.txt\AnsV.txt in line 1
+N601	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\PU.zip_temp.txt\AnsM.txt in line 1
+Q001	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\ST.zip_temp.txt\AnsM.txt in line 1
+E001	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\ST.zip_temp.txt\AnsV.txt in line 1
+E501 1	
+      ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\ST.zip_temp.txt\E503-i.txt in line 34
+#4 Мамонова Александра Игоревна, 19748
+                                      ^
+Found symbol nl but expected .
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\TO.zip_temp.txt\W101.txt in line 1
+1. Чадо
+       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\VE.zip_temp.txt\VE\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\VE.zip_temp.txt\VE\AnsM.txt in line 1
+N201	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t1\raw\VE.zip_temp.txt\VE\AnsV.txt in line 0
+
+
+Found symbol EndSymbol but expected w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\DO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\DO.zip_temp.txt\AnsM.txt in line 1
+D001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\DO.zip_temp.txt\AnsV.txt in line 1
+D501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\DO.zip_temp.txt\D502-i.txt in line 10
+Email/тел.: +7(926)354-15-49/volokno@inbox.ru
+                            ^
+Found symbol / but expected nl @ w n ] [ # , . : p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\DU.zip_temp.txt\DU\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\DU.zip_temp.txt\DU\AnsM.txt in line 1
+C001 11
+       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\DU.zip_temp.txt\DU\AnsV.txt in line 1
+C501 6
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\DU.zip_temp.txt\DU\C501-i.txt in line 32
+#2 Плешанова Светлана Борисовна, 28.02.1997, -
+                                            ^^
+Found symbol c but expected n nl
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\EG.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\EG.zip_temp.txt\AnsM.txt in line 1
+I001 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\EG.zip_temp.txt\AnsV.txt in line 1
+I501 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\I5.zip_temp.txt\I5\AnsV.txt in line 1
+R501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\IS.zip_temp.txt\IS\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\IS.zip_temp.txt\IS\AnsM.txt in line 1
+N001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\IV.zip_temp.txt\AnsM.txt in line 1
+R003 3
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\KA.zip_temp.txt\AnsM.txt in line 1
+U001	19
+       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\KH.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\KH.zip_temp.txt\AnsM.txt in line 1
+P006 6
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\KH.zip_temp.txt\AnsV.txt in line 1
+P504 4
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\KO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\KO.zip_temp.txt\AnsM.txt in line 1
+F001 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\KO.zip_temp.txt\AnsV.txt in line 1
+F501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\KO.zip_temp.txt\F507-i.txt in line 35
+#5 Кулагина Ирина Андреевна, 02.01.1994 69101
+                                       ^
+Found symbol p but expected nl ,
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\LO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\LO.zip_temp.txt\AnsM.txt in line 1
+L001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\LO.zip_temp.txt\AnsV.txt in line 1
+L501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\P6.zip_temp.txt\AnsV.txt in line 1
+N601 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\PO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\PO.zip_temp.txt\AnsM.txt in line 1
+K001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\PP.zip_temp.txt\AnsM.txt in line 1
+T001	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\PP.zip_temp.txt\AnsV.txt in line 1
+T501	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\ps.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\ps.zip_temp.txt\AnsM.txt in line 1
+N101 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\ps.zip_temp.txt\AnsV.txt in line 1
+N601 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\pu.zip_temp.txt\pu\AnsM.txt in line 1
+Q001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\pu.zip_temp.txt\pu\AnsV.txt in line 1
+Q501	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\pu.zip_temp.txt\pu\Q501-i.txt in line 36
+л#6 Поздняков Никита Валентинович, 25337
+                                        ^
+Found symbol nl but expected .
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\st.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\st.zip_temp.txt\AnsM.txt in line 1
+E001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\st.zip_temp.txt\AnsV.txt in line 1
+E501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\st.zip_temp.txt\E006-1-12.txt in line 1
+Просим засчитать ответ на вопрос №12 "картофель фри" тк мы знаем что
+                                                                    ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\TO.zip_temp.txt\W101.txt in line 1
+1. Яйцо Фаберже
+               ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\DO.zip_temp.txt\DO\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\DO.zip_temp.txt\DO\AnsM.txt in line 1
+D001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\DO.zip_temp.txt\DO\AnsV.txt in line 1
+D501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\DO.zip_temp.txt\DO\D502-i.txt in line 10
+Email/тел.: +7(926)354-15-49/volokno@inbox.ru
+                            ^
+Found symbol / but expected nl @ w n ] [ # , . : p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\DU.zip_temp.txt\DU\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\DU.zip_temp.txt\DU\AnsM.txt in line 1
+C001 11
+       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\DU.zip_temp.txt\DU\AnsV.txt in line 1
+C501 6
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\EG.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\EG.zip_temp.txt\AnsM.txt in line 1
+I001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\EG.zip_temp.txt\AnsV.txt in line 1
+I501 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\IS.zip_temp.txt\IS\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\IS.zip_temp.txt\IS\AnsM.txt in line 1
+N001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\IV.zip_temp.txt\IV\AnsM.txt in line 1
+R003 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\IV.zip_temp.txt\IV\AnsV.txt in line 1
+R501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\KA.zip_temp.txt\KA\AnsM.txt in line 1
+U001	32
+       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\KH.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\KH.zip_temp.txt\AnsM.txt in line 1
+P003 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\KH.zip_temp.txt\AnsV.txt in line 1
+P504 4
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\KH.zip_temp.txt\P506-1-22.txt in line 1
+Просим засчитать ответ на вопрос №22 (про уши эльфов и людей) "острые и тупые" как верный, так как он равнозначен ответу "остроконеечные и тупоконечные".
+                                                                                                                                                         ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\KH.zip_temp.txt\P507-1-22.txt in line 1
+Просим засчитать ответ на вопрос №22 (про уши эльфов и людей) "острые и тупые" как верный, так как он равнозначен ответу "остроконеечные и тупоконечные".
+                                                                                                                                                         ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\KO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\KO.zip_temp.txt\AnsM.txt in line 1
+F001 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\KO.zip_temp.txt\AnsV.txt in line 1
+F501 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\LO.zip_temp.txt\LO\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\LO.zip_temp.txt\LO\AnsM.txt in line 1
+L001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\LO.zip_temp.txt\LO\AnsV.txt in line 1
+L501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\PO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\PO.zip_temp.txt\AnsM.txt in line 1
+K001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\PP.zip_temp.txt\AnsM.txt in line 1
+T001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\PP.zip_temp.txt\AnsV.txt in line 1
+T501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\ps.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\ps.zip_temp.txt\AnsM.txt in line 1
+N101 2
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\ps.zip_temp.txt\AnsV.txt in line 1
+N601 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\pu.zip_temp.txt\pu\AnsM.txt in line 1
+Q001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\pu.zip_temp.txt\pu\AnsV.txt in line 1
+Q501	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\st.zip_temp.txt\AnsM.txt in line 1
+E001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\st.zip_temp.txt\AnsV.txt in line 1
+E501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\TO.zip_temp.txt\W101.txt in line 1
+1. Один шаг
+           ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t3\raw\VE.zip_temp.txt\AnsM.txt in line 1
+N201 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\DO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\DO.zip_temp.txt\AnsM.txt in line 1
+D001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\DO.zip_temp.txt\AnsV.txt in line 1
+D501 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\DU.zip_temp.txt\DU\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\DU.zip_temp.txt\DU\AnsM.txt in line 1
+C001 11
+       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\DU.zip_temp.txt\DU\AnsV.txt in line 1
+C501 6
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\EG.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\EG.zip_temp.txt\AnsM.txt in line 1
+I001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\EG.zip_temp.txt\AnsV.txt in line 1
+I501 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\IS.zip_temp.txt\IS\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\IS.zip_temp.txt\IS\AnsM.txt in line 1
+N001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\IV.zip_temp.txt\IV\AnsM.txt in line 1
+R003 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\IV.zip_temp.txt\IV\AnsV.txt in line 1
+R501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\KA.zip_temp.txt\KA\AnsM.txt in line 1
+U001	11
+       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\KO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\KO.zip_temp.txt\AnsM.txt in line 1
+F001
+    ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\KO.zip_temp.txt\AnsV.txt in line 1
+F501  
+    ^^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\LO.zip_temp.txt\LO\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\LO.zip_temp.txt\LO\AnsM.txt in line 1
+L001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\LO.zip_temp.txt\LO\AnsV.txt in line 1
+L501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\PO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\PO.zip_temp.txt\AnsM.txt in line 1
+K001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\PP.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\PP.zip_temp.txt\AnsM.txt in line 1
+T001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\PP.zip_temp.txt\AnsV.txt in line 1
+T501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\ps.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\ps.zip_temp.txt\AnsM.txt in line 1
+N101 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\ps.zip_temp.txt\AnsV.txt in line 1
+N601 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\ps.zip_temp.txt\N601.txt in line 1
+1.	книги сказок
+               ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\ps.zip_temp.txt\N603.txt in line 1
+1.	счастливое рождество
+                       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\pu.zip_temp.txt\pu\AnsM.txt in line 1
+Q001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\pu.zip_temp.txt\pu\AnsV.txt in line 1
+Q501	1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\St.zip_temp.txt\AnsM.txt in line 1
+E001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\St.zip_temp.txt\AnsV.txt in line 1
+E501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\TO.zip_temp.txt\W101.txt in line 1
+1. Чехов
+        ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t4\raw\VE.zip_temp.txt\VE\AnsM.txt in line 1
+N201 1 
+      ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\DO.zip_temp.txt\DO\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\DO.zip_temp.txt\DO\AnsM.txt in line 1
+D001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\DO.zip_temp.txt\DO\AnsV.txt in line 1
+D501 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\DU.zip_temp.txt\DU\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\DU.zip_temp.txt\DU\AnsM.txt in line 1
+C001 11
+       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\DU.zip_temp.txt\DU\C015-i.txt in line 9
+Email/тел.: assa;nr;/ 89160518145
+                    ^
+Found symbol / but expected nl @ w n ] [ # , . : p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\EG.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\EG.zip_temp.txt\AnsM.txt in line 1
+I001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\EG.zip_temp.txt\AnsV.txt in line 1
+I501 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\IS.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\IS.zip_temp.txt\AnsM.txt in line 1
+N001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\IV.zip_temp.txt\IV\AnsM.txt in line 1
+R003	3
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\KA.zip_temp.txt\KA\AnsM.txt in line 1
+U001	11
+       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\KH.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\KH.zip_temp.txt\AnsM.txt in line 1
+P006 6
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\KH.zip_temp.txt\AnsV.txt in line 1
+P504 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\KO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\KO.zip_temp.txt\AnsM.txt in line 1
+F001
+    ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\LO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\LO.zip_temp.txt\AnsM.txt in line 1
+L001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\LO.zip_temp.txt\AnsV.txt in line 1
+L501 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\PO.zip_temp.txt\AnsM.txt in line 1
+K001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\PP.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\PP.zip_temp.txt\AnsM.txt in line 1
+T001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\ps.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\ps.zip_temp.txt\AnsM.txt in line 1
+N101 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\ps.zip_temp.txt\AnsV.txt in line 1
+N601 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\pu.zip_temp.txt\pu\AnsM.txt in line 1
+Q001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\St.zip_temp.txt\AnsM.txt in line 1
+E001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\TO.zip_temp.txt\W101.txt in line 1
+1. Плечо
+        ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t5\raw\VE.zip_temp.txt\AnsM.txt in line 1
+N201 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\DO.zip_temp.txt\DO\!!!README!!!.txt in line 1
+Внимание!
+         ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\DO.zip_temp.txt\DO\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\DO.zip_temp.txt\DO\AnsM.txt in line 1
+D001 1 
+      ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\DO.zip_temp.txt\DO\AnsV.txt in line 1
+D501 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\DU.zip_temp.txt\DU\!!!README!!!.txt in line 1
+Внимание!
+         ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\DU.zip_temp.txt\DU\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\DU.zip_temp.txt\DU\AnsM.txt in line 1
+C001 11
+       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\DU.zip_temp.txt\DU\AnsV.txt in line 1
+C501 6
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\DU.zip_temp.txt\DU\C015-i.txt in line 9
+Email/тел.: assa;nr;/ 89160518145
+                    ^
+Found symbol / but expected nl @ w n ] [ # , . : p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\EG.zip_temp.txt\!!!README!!!.txt in line 1
+Внимание!
+         ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\EG.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\EG.zip_temp.txt\AnsM.txt in line 1
+I001 3
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\EG.zip_temp.txt\AnsV.txt in line 1
+I501 
+    ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\IS.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\IS.zip_temp.txt\AnsM.txt in line 1
+N001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\IV.zip_temp.txt\IV\AnsV.txt in line 1
+R503 3
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\KA.zip_temp.txt\KA\AnsM.txt in line 1
+U001	16
+       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\KO.zip_temp.txt\!!!README!!!.txt in line 1
+Внимание!
+         ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\KO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\KO.zip_temp.txt\AnsM.txt in line 1
+F003 2 
+      ^^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\KO.zip_temp.txt\AnsV.txt in line 1
+F501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\LO.zip_temp.txt\!!!README!!!.txt in line 1
+Внимание!
+         ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\LO.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\LO.zip_temp.txt\AnsM.txt in line 1
+L001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\LO.zip_temp.txt\AnsV.txt in line 1
+L501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\PO.zip_temp.txt\AnsM.txt in line 1
+K001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\PP.zip_temp.txt\!!!README!!!.txt in line 1
+Внимание!
+         ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\PP.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\PP.zip_temp.txt\AnsM.txt in line 1
+T001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\PP.zip_temp.txt\AnsV.txt in line 1
+T501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\ps.zip_temp.txt\!!!README!!!.txt in line 1
+Внимание!
+         ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\ps.zip_temp.txt\Ans-instr.txt in line 1
+Инструкция по оформлению отчета с ответами команд.
+                                                  ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\ps.zip_temp.txt\AnsM.txt in line 1
+N101 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\ps.zip_temp.txt\AnsV.txt in line 1
+N601 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\pu.zip_temp.txt\pu\AnsM.txt in line 1
+Q001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\pu.zip_temp.txt\pu\AnsV.txt in line 1
+Q501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\st.zip_temp.txt\AnsM.txt in line 1
+E001 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\st.zip_temp.txt\AnsV.txt in line 1
+E501 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\st.zip_temp.txt\E002-1-14.txt in line 1
+Апелляция на вопрос №14
+                       ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\TO.zip_temp.txt\W101.txt in line 1
+1. Папа Римский
+               ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t6\raw\VE.zip_temp.txt\VE\AnsM.txt in line 1
+N201 1
+      ^
+Found symbol nl but expected [ w n # , . / : @ p + c
+
+

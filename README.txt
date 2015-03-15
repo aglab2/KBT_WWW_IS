@@ -6,27 +6,58 @@
 Оставлю упоминания файлов с проблемами на первой грамматике:
 
 -- TestsG1\$\t1\raw\DO.zip_temp.txt\D502-i.txt
--- TestsG1\$\t1\raw\DU.zip_temp.txt\C003-0-19.txt
+Email/тел.: +7(926)354-15-49/volokno@inbox.ru
+                            ^
+Found symbol / but expected nl @ w n ] [ # , . : p + c
+
+
 -- TestsG1\$\t1\raw\ST.zip_temp.txt\E503-i.txt
--- TestsG1\$\t1\raw\TO.zip_temp.txt\W101.txt
+#4 Мамонова Александра Игоревна, 19748
+                                      ^
+Found symbol nl but expected .
+
+
 -- TestsG1\$\t2\raw\DO.zip_temp.txt\D502-i.txt
+Email/тел.: +7(926)354-15-49/volokno@inbox.ru
+                            ^
+Found symbol / but expected nl @ w n ] [ # , . : p + c
+
+
 -- TestsG1\$\t2\raw\DU.zip_temp.txt\DU\C501-i.txt
+Error in file C:\Users\Кирилл\Desktop\KBT_WWW_IS\Grammar\TestsG1\$\t2\raw\DU.zip_temp.txt\DU\C501-i.txt in line 32
+#2 Плешанова Светлана Борисовна, 28.02.1997, -
+                                            ^^
+Found symbol c but expected n nl
+
+
 -- TestsG1\$\t2\raw\KO.zip_temp.txt\F507-i.txt
+#5 Кулагина Ирина Андреевна, 02.01.1994 69101
+                                       ^
+Found symbol p but expected nl ,
+
+
 -- TestsG1\$\t2\raw\pu.zip_temp.txt\pu\Q501-i.txt
--- TestsG1\$\t2\raw\st.zip_temp.txt\E006-1-12.txt
--- TestsG1\$\t2\raw\TO.zip_temp.txt\W101.txt
+л#6 Поздняков Никита Валентинович, 25337
+                                        ^
+Found symbol nl but expected .
+
+
 -- TestsG1\$\t3\raw\DO.zip_temp.txt\DO\D502-i.txt
--- TestsG1\$\t3\raw\KH.zip_temp.txt\P506-1-22.txt
--- TestsG1\$\t3\raw\KH.zip_temp.txt\P507-1-22.txt
--- TestsG1\$\t3\raw\TO.zip_temp.txt\W101.txt
--- TestsG1\$\t4\raw\ps.zip_temp.txt\N601.txt
--- TestsG1\$\t4\raw\ps.zip_temp.txt\N603.txt
--- TestsG1\$\t4\raw\TO.zip_temp.txt\W101.txt
+Email/тел.: +7(926)354-15-49/volokno@inbox.ru
+                            ^
+Found symbol / but expected nl @ w n ] [ # , . : p + c
+
+
 -- TestsG1\$\t5\raw\DU.zip_temp.txt\DU\C015-i.txt
--- TestsG1\$\t5\raw\TO.zip_temp.txt\W101.txt
+Email/тел.: assa;nr;/ 89160518145
+                    ^
+Found symbol / but expected nl @ w n ] [ # , . : p + c
+
+
 -- TestsG1\$\t6\raw\DU.zip_temp.txt\DU\C015-i.txt
--- TestsG1\$\t6\raw\st.zip_temp.txt\E002-1-14.txt
--- TestsG1\$\t6\raw\TO.zip_temp.txt\W101.txt
+Email/тел.: assa;nr;/ 89160518145
+                    ^
+Found symbol / but expected nl @ w n ] [ # , . : p + c
 
 2) Написание "Кластера грамматик"
 Интересно, что первая грамматика состоит из 3 блоков, поэтому .1 и .2 будем натравлять только на те отчеты которые оказались в списке с флагом false
