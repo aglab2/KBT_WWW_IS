@@ -188,7 +188,7 @@ public class Attribute
     }
 
     public Collection<object> A2(Collection<object> n1, Collection<object> p1, Collection<object> w1, Collection<object> p2, Collection<object> w2,
-        Collection<object> palka, Collection<object> w3, Collection<object> nl, Collection<object> A)
+        Collection<object> nl, Collection<object> A)
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
@@ -200,14 +200,14 @@ public class Attribute
         try
         {
             int parsed = -1;
-            int.TryParse((string)n1[1], out parsed);
+            int.TryParse((string)n1[0], out parsed);
 
             foreach (Question q in questions)
                 foreach (Answer a in q.ans)
                     if (a.teamnum == parsed)
                         a.team = (string)w2[1];
 
-            teams.Add(new Team((string)w1[1], (string)w2[1], "", ""));
+            teams.Add(new Team((string)w1[0], (string)w2[1], "", ""));
             ret.Add(teams);
             ret.Add(caps);
             ret.Add(questions);
@@ -385,7 +385,9 @@ public class Attribute
 
         try
         {
-            teams.Add((int)n[0]);
+            int parsed = 0;
+            int.TryParse((string)n[0], out parsed);
+            teams.Add(parsed);
             foreach (int i in teams)
             {
                 Answer a = new Answer(2, i, (string)W[1]);
