@@ -380,6 +380,32 @@ public class Attribute
         return ret;
     }
 
+    public Collection<object> P2(Collection<object> s1, Collection<object> n1, Collection<object> Name,
+    Collection<object> nl, Collection<object> P)
+    {
+        Collection<object> ret = new Collection<object>();
+        ret.Add(null);
+
+        Collection<Player> Players = (Collection<Player>)P[1];
+        Collection<Tour> Tours = (Collection<Tour>)P[2];
+
+        int parsed = 0;
+        int.TryParse((string)n1[0], out parsed);
+
+        Player ThePlayer = new Player(parsed, (string)Name[1], "", false.ToString(), false.ToString(), "");
+        Players.Add(ThePlayer);
+
+        foreach (Tour t in Tours)
+            if (t.playernums.Contains(ThePlayer.num))
+                t.players.Add(ThePlayer);
+
+        ret.Add(Players);
+        ret.Add(Tours);
+
+        return ret;
+    }
+
+
     public Collection<object> P6(Collection<object> sym, Collection<object> s1, Collection<object> n1, Collection<object> Name,
         Collection<object> c1, Collection<object> p4, Collection<object> Date, Collection<object> nl, Collection<object> P)
     {
@@ -419,6 +445,47 @@ public class Attribute
         }
         return ret;
     }
+
+    public Collection<object> P9(Collection<object> sym, Collection<object> s1, Collection<object> n1, Collection<object> Name,
+    Collection<object> nl, Collection<object> P)
+    {
+        Collection<object> ret = new Collection<object>();
+        ret.Add(null);
+
+        try
+        {
+            Collection<Player> Players = (Collection<Player>)P[1];
+            Collection<Tour> Tours = (Collection<Tour>)P[2];
+
+            int parsed = 0;
+            int.TryParse((string)n1[0], out parsed);
+            bool is_capitan = ((string)sym[0] == "+" || (string)sym[0] == "Ê" || (string)sym[0] == "K") ? true : false;
+            bool is_legioner = ((string)sym[0] == "ë" || (string)sym[0] == "Ë" || (string)sym[0] == "$") ? true : false;
+
+            Player ThePlayer = new Player(parsed, (string)Name[1], "", is_capitan.ToString(), is_legioner.ToString(), "");
+
+            foreach (Tour t in Tours)
+            {
+                if (t.playernums.Contains(ThePlayer.num))
+                    t.players.Add(ThePlayer);
+            }
+
+            if (is_capitan)
+                foreach (var Vasya in Players)
+                    if (Vasya.is_captain == is_capitan.ToString()) throw new Exception("More than one capitan!");
+
+            Players.Add(ThePlayer);
+
+            ret.Add(Players);
+            ret.Add(Tours);
+        }
+        catch (Exception e)
+        {
+            ret[0] = e;
+        }
+        return ret;
+    }
+
 
     public Collection<object> P4(Collection<object> s1, Collection<object> n1, Collection<object> Name,
         Collection<object> c1, Collection<object> s2, Collection<object> Date, Collection<object> c2, 

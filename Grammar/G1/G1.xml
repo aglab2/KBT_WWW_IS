@@ -204,7 +204,20 @@
 
 
 
-	<PR attr="P1">
+
+  <PR attr="P2">
+    <left>
+      <PRS>P</PRS>
+    </left>
+    <right>
+      <PRS>#</PRS>
+      <PRS>n</PRS>
+      <PRS>Word,:</PRS>
+      <PRS>nl</PRS>
+      <PRS>P</PRS>
+    </right>
+  </PR>
+  <PR attr="P1">
 		<left>
 			<PRS>P</PRS>
 		</left>
@@ -256,7 +269,22 @@
 		</right>
 	</PR>
 
-	<PR attr="P7">
+  <PR attr="P9">
+    <left>
+      <PRS>P</PRS>
+    </left>
+    <right>
+      <PRS>+</PRS>
+      <PRS>#</PRS>
+      <PRS>n</PRS>
+      <PRS>Word,:</PRS>
+      <PRS>nl</PRS>
+      <PRS>P</PRS>
+    </right>
+  </PR>
+
+
+  <PR attr="P7">
 		<left>
 			<PRS>P</PRS>
 		</left>
@@ -275,7 +303,7 @@
 			<PRS>P</PRS>
 		</right>
 	</PR>
-
+  
   <PR attr="P6">
     <left>
       <PRS>P</PRS>
@@ -292,6 +320,21 @@
       <PRS>P</PRS>
     </right>
   </PR>
+
+  <PR attr="P9">
+    <left>
+      <PRS>P</PRS>
+    </left>
+    <right>
+      <PRS>w</PRS>
+      <PRS>#</PRS>
+      <PRS>n</PRS>
+      <PRS>Word,:</PRS>
+      <PRS>nl</PRS>
+      <PRS>P</PRS>
+    </right>
+  </PR>
+
 
   <PR attr="P7">
     <left>
