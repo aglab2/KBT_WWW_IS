@@ -103,6 +103,19 @@ public class Attribute
         arg.Add(Tuple.Create("@regcard_number", RegCardNumber)); 
         ret.Add(comm);
 
+        // в этом формате отчетов все игроки образуют команду
+        int cap_number = 0;
+        foreach (var Player in Players)
+            if (Player.is_captain == true.ToString())
+                cap_number++;
+        
+        if (cap_number > 1)
+        {
+            ret[0] = new Exception("More than one capitan!");
+            return ret;
+        }
+
+        if (Players.Count > 0 && cap_number == 0) Players[Players.Count - 1].is_captain = true.ToString();
 
         foreach (var Player in Players)
         {
@@ -419,7 +432,7 @@ public class Attribute
 
             int parsed = 0;
             int.TryParse((string)n1[0], out parsed);
-            bool is_capitan = ((string)sym[0] == "+" || (string)sym[0] == "К" || (string)sym[0] == "K") ? true : false;
+            bool is_capitan = ((string)sym[0] == "+" || (string)sym[0] == "К" || (string)sym[0] == "K" || (string)sym[0] == "k" || (string)sym[0] == "к") ? true : false;
             bool is_legioner = ((string)sym[0] == "л" || (string)sym[0] == "Л" || (string)sym[0] == "$") ? true : false;
 
             Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], is_capitan.ToString(), is_legioner.ToString(), "");
@@ -459,7 +472,7 @@ public class Attribute
 
             int parsed = 0;
             int.TryParse((string)n1[0], out parsed);
-            bool is_capitan = ((string)sym[0] == "+" || (string)sym[0] == "К" || (string)sym[0] == "K") ? true : false;
+            bool is_capitan = ((string)sym[0] == "+" || (string)sym[0] == "К" || (string)sym[0] == "K" || (string)sym[0] == "k" || (string)sym[0] == "к") ? true : false;
             bool is_legioner = ((string)sym[0] == "л" || (string)sym[0] == "Л" || (string)sym[0] == "$") ? true : false;
 
             Player ThePlayer = new Player(parsed, (string)Name[1], "", is_capitan.ToString(), is_legioner.ToString(), "");
@@ -525,7 +538,7 @@ public class Attribute
 
             int parsed = 0;
             int.TryParse((string)n1[0], out parsed);
-            bool is_capitan = ((string)sym[0] == "+" || (string)sym[0] == "К" || (string)sym[0] == "K") ? true : false;
+            bool is_capitan = ((string)sym[0] == "+" || (string)sym[0] == "К" || (string)sym[0] == "K" || (string)sym[0] == "k" || (string)sym[0] == "к") ? true : false;
             bool is_legioner = ((string)sym[0] == "л" || (string)sym[0] == "Л" || (string)sym[0] == "$") ? true : false;
             Player ThePlayer = new Player(parsed, (string)Name[1], (string)Date[1], is_capitan.ToString(), is_legioner.ToString(), (string)n5[1]);
 

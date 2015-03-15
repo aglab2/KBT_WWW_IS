@@ -58,7 +58,8 @@ namespace KBT_WWW_IS
 
                 Console.WriteLine("\n\n-- TEST RESULTS");
                 foreach (var key in Results.Keys)
-                    Console.WriteLine("-- " + key + ":" + Results[key]);
+                    if (Results[key] == false) // only bad reports
+                        Console.WriteLine("-- " + key + ":" + Results[key]);
             }
             catch (Exception E)
             {
