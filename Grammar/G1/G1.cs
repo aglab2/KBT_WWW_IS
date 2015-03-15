@@ -74,6 +74,7 @@ public class Attribute
         Collection<Tour> Tours = (Collection<Tour>)E[3];
 
         string RegCardNumber = (string)w0[0];
+        RegCardNumber = RegCardNumber.Remove(RegCardNumber.Length - 2);
         string TournamentName = (string)w1[1];
         string TeamTournamentPassword = (string)w2[0];
 
