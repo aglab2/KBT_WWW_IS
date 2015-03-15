@@ -6,6 +6,7 @@ DROP PROCEDURE addPlayer2Season;
 DROP PROCEDURE addGameRound;
 DROP PROCEDURE addAnswer;
 DROP PROCEDURE addPlayer2GameRound;
+DROP PROCEDURE addAnswerByGlobalID;
 
 DROP TABLE AgeCategory;
 DROP TABLE ExternalT;

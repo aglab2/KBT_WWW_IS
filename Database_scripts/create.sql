@@ -560,3 +560,45 @@ AS
 		WHERE Player.id = @player_id
 	END
 GO
+
+/* Процедура добавления ответа команды на вопрос по ее внешнему ID */
+/* Требуется: Созданный турнир, созданная команда, созданный город,  */
+CREATE PROCEDURE addAnswerByGlobalID 
+	@regcard_number nvarchar(max),
+	@question_num INT,
+	@answer_text NVARCHAR(MAX),
+	@is_valid BIT,
+	@tournament_name NVARCHAR(max),
+	@tournament_city NVARCHAR(max),
+	@gamenumber INT
+AS
+	DECLARE @city_id INT;
+	SET @city_id = (SELECT id FROM Address WHERE name = @tournament_city);
+	IF @city_id IS NULL
+		raiserror('No such city', 18, -1);
+
+	DECLARE @tournament_id INT;
+	SET @tournament_id = (SELECT id FROM Tournament WHERE name = @tournament_name AND address_id = @city_id);
+	IF @tournament_id IS NULL
+		raiserror('No such tournament', 18, -1);
+
+	
+	DECLARE @team_id INT;
+	SET @team_id = (SELECT team_id FROM TeamTournament WHERE tournament_id = @tournament_id AND regcard_number = @regcard_number);
+	IF @team_id IS NULL
+		raiserror('No team with such code', 18, -1);
+	
+
+	DECLARE @gameround_id INT;
+	SET @gameround_id = (SELECT id FROM GameRound WHERE gamenumber = @gamenumber AND tournament_id = @tournament_id);
+	IF @gameround_id IS NULL
+		raiserror('No such gameround', 18, -1);
+
+
+	DECLARE @answer_id INT;
+	SET @answer_id = (SELECT gameround_id FROM Answer WHERE gameround_id = @gameround_id AND team_id = @team_id AND question_num = @question_num );
+	IF @answer_id IS NULL
+	BEGIN
+		INSERT Answer (gameround_id, team_id, question_id, question_num, answer_text, is_valid) VALUES (@gameround_id, @team_id, NULL, @question_num, @answer_text, @is_valid);
+	END
+GO
