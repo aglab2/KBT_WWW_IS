@@ -119,7 +119,7 @@ CREATE TABLE TeamTournament (
 	team_id        integer NOT NULL,
 	tournament_id  integer NOT NULL,
 	regcard_number nvarchar(max),
-	age_category   integer NOT NULL,
+	age_category_id   integer NOT NULL, --NOT NULL: это нужно?
 	CONSTRAINT FK_TeamTournament_Team FOREIGN KEY (team_id)
 		REFERENCES Team(id),
 	CONSTRAINT FK_TeamTournament_Tournament FOREIGN KEY (tournament_id)
@@ -310,7 +310,8 @@ CREATE PROCEDURE addTeam2Tournament
 	@team_name NVARCHAR(max),
 	@tournament_name NVARCHAR(max),
 	@tournament_city NVARCHAR(max),
-	@regcard_number NVARCHAR(max)
+	@regcard_number NVARCHAR(max),
+	@age_category NVARCHAR(max) = NULL --make max = 2????
 AS
 	DECLARE @city_id INT;
 	SET @city_id = (SELECT id FROM Address WHERE name = @tournament_city);
@@ -326,13 +327,24 @@ AS
 	SET @tournament_id = (SELECT id FROM Tournament WHERE name = @tournament_name AND address_id = @city_id);	
 	IF @tournament_id IS NULL
 		raiserror('No such tournament!', 18, -1);
-	
+
+	DECLARE @age_category_id INT;
+	IF @age_category IS NOT NULL
+	BEGIN
+		SET @age_category_id = (SELECT id FROM AgeCategory WHERE AgeCategory.name = @age_category)
+		IF @age_category_id IS NULL
+			INSERT INTO AgeCategory(clgroup, name) VALUES (0, @age_category) --what the hell clgroup?
+		SET @age_category_id = (SELECT id FROM AgeCategory WHERE AgeCategory.name = @age_category)
+	END
+	ELSE
+		SET @age_category_id = 0;
+
 	DECLARE @id NVARCHAR(max);
 	SET @id = (SELECT regcard_number FROM TeamTournament WHERE team_id=@team_id AND tournament_id=@tournament_id)
 
 	IF @id IS NULL
 	BEGIN
-		INSERT INTO TeamTournament(team_id, tournament_id, regcard_number, age_category) VALUES (@team_id, @tournament_id, @regcard_number, 0);
+		INSERT INTO TeamTournament(team_id, tournament_id, regcard_number, age_category_id) VALUES (@team_id, @tournament_id, @regcard_number, @age_category_id);
 		/*Age category*/
 	END
 	ELSE

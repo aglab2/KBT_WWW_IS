@@ -100,9 +100,12 @@ public class Attribute
         arg.Add(Tuple.Create("@team_name", TheTeam.name));
         arg.Add(Tuple.Create("@tournament_name", TournamentName));
         arg.Add(Tuple.Create("@tournament_city", city));
-        arg.Add(Tuple.Create("@regcard_number", RegCardNumber)); 
+        arg.Add(Tuple.Create("@regcard_number", RegCardNumber));
+        arg.Add(Tuple.Create("@age_category", TheTeam.age_category)); 
         ret.Add(comm);
 
+
+        /* обработка ситуаций, когда капитан явно не указан/проверка, что капитанов не более одного */
         // в этом формате отчетов все игроки образуют команду
         int cap_number = 0;
         foreach (var Player in Players)
@@ -116,6 +119,8 @@ public class Attribute
         }
 
         if (Players.Count > 0 && cap_number == 0) Players[Players.Count - 1].is_captain = true.ToString();
+        /* ----------------------------------------------------------------------------------------- */
+
 
         foreach (var Player in Players)
         {
