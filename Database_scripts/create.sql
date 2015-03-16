@@ -336,6 +336,7 @@ AS
 	BEGIN
 		INSERT INTO AgeCategory(clgroup, name) VALUES (0, @age_category) --what the hell clgroup?
 		SET @age_category_id = IDENT_CURRENT('AgeCategory');
+	END
 
 	DECLARE @age_category_cur NVARCHAR(max);
 	SET @age_category_cur = (SELECT age_category_id FROM TeamTournament WHERE team_id=@team_id AND tournament_id=@tournament_id)
