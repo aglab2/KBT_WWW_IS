@@ -312,7 +312,6 @@ CREATE PROCEDURE addAgeCategory2TeamTournament
 	@team_name NVARCHAR(max),
 	@tournament_name NVARCHAR(max),
 	@tournament_city NVARCHAR(max),
-	@regcard_number NVARCHAR(max),
 	@age_category NVARCHAR(max)
 AS
 	DECLARE @city_id INT;

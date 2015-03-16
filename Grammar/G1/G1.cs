@@ -108,7 +108,6 @@ public class Attribute
         arg.Add(Tuple.Create("@team_name", TheTeam.name));
         arg.Add(Tuple.Create("@tournament_name", TournamentName));
         arg.Add(Tuple.Create("@tournament_city", city));
-        arg.Add(Tuple.Create("@regcard_number", RegCardNumber));
         arg.Add(Tuple.Create("@age_category", TheTeam.age_category)); 
         
         ret.Add(comm);
@@ -197,7 +196,7 @@ public class Attribute
         else if (title == "Возрастная категория")
         {
             if (TheTeam.age_category == "") TheTeam.age_category = (string)W2[1];
-            else doubledeclare = (string)W1[1]; //TODO
+            else doubledeclare = (string)W1[1];
         }
         else if (title == "Город")
         {

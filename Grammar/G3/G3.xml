@@ -131,7 +131,6 @@
 			<PRS>C</PRS>
 		</left>
 		<right>
-			
 			<PRS>B</PRS>
 		</right>
 	</PR>
@@ -164,7 +163,7 @@
 			<PRS>D</PRS>
 		</right>
 	</PR>	
-	<PR attr="B2">
+	<PR attr="B1">
 		<left>
 			<PRS>D</PRS>
 		</left>
@@ -184,7 +183,7 @@
 			<PRS>D</PRS>
 		</right>
 	</PR>	
-	<PR attr="B2">
+	<PR attr="B1">
 		<left>
 			<PRS>D</PRS>
 		</left>
@@ -202,7 +201,7 @@
 			<PRS>n</PRS>
 		</right>
 	</PR>	
-	<PR attr="B4">
+	<PR attr="B3">
 		<left>
 			<PRS>D</PRS>
 		</left>
@@ -224,7 +223,7 @@
 			<PRS>B</PRS>
 		</right>
 	</PR>	
-	<PR attr="B2">
+	<PR attr="B1">
 		<left>
 			<PRS>B</PRS>
 		</left>
@@ -243,7 +242,7 @@
 			<PRS>p</PRS>
 		</right>
 	</PR>	
-	<PR attr="BB4">
+	<PR attr="BB3">
 		<left>
 			<PRS>B</PRS>
 		</left>

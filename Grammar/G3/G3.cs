@@ -12,13 +12,15 @@ public class Attribute
         public string name;
         public string email;
         public string city;
+        public Collection<string> agecat;
 
-        public Team(string global_id, string name, string email, string city)
+        public Team(string global_id, string name, string email, string city, Collection<string> agecat)
         {
             this.global_id = global_id;
             this.name = name;
             this.email = email;
             this.city = city;
+            this.agecat = agecat;
         }
     }
 
@@ -113,6 +115,18 @@ public class Attribute
             arg.Add(Tuple.Create("@tournament_city", city.Trim()));
             arg.Add(Tuple.Create("@team_name", i.name.Trim()));
             ret.Add(comm);
+
+            foreach (string j in i.agecat)
+            {
+                arg = new Collection<Tuple<string, string>>();
+                comm = new Tuple<string, Collection<Tuple<string, string>>>("addAgeCategory2TeamTournament", arg);
+                arg.Add(Tuple.Create("@tournament_name", name.Trim()));
+                arg.Add(Tuple.Create("@tournament_city", city.Trim()));
+                arg.Add(Tuple.Create("@team_name", i.name.Trim()));
+                arg.Add(Tuple.Create("@age_category", j));
+
+                ret.Add(comm);
+            }
         }
 
         foreach (Player i in caps)
@@ -181,7 +195,7 @@ public class Attribute
                     if (a.teamnum == parsed)
                         a.team = (string)W1[1];
 
-            teams.Add(new Team((string)n2[1], (string)W1[1], (string)W4[1], (string)W3[1]));
+            teams.Add(new Team((string)n2[1], (string)W1[1], (string)W4[1], (string)W3[1], (Collection<string>)B[1]));
             caps.Add(new Player((string)W1[1], (string)W2[1], "", "true"));
             ret.Add(teams);
             ret.Add(caps);
@@ -218,7 +232,7 @@ public class Attribute
                     if (a.team == null && a.teamnum == parsed)
                         a.team = (string)W1[1];
 
-            teams.Add(new Team((string)n2[1], (string)W1[1], "", (string)W3[1]));
+            teams.Add(new Team((string)n2[1], (string)W1[1], "", (string)W3[1], (Collection<string>)B[1]));
             caps.Add(new Player((string)W1[1], (string)W2[1], "", "true"));
             ret.Add(teams);
             ret.Add(caps);
@@ -253,8 +267,8 @@ public class Attribute
                 foreach (Answer a in q.ans)
                     if (a.team == null && a.teamnum == parsed)
                         a.team = (string)W1[1];
-            
-            teams.Add(new Team((string)n2[1], (string)W1[1], "", ""));
+
+            teams.Add(new Team((string)n2[1], (string)W1[1], "", "", (Collection<string>)B[1]));
             caps.Add(new Player((string)W1[1], (string)W2[1], "", "true"));
             ret.Add(teams);
             ret.Add(caps);
@@ -290,7 +304,7 @@ public class Attribute
                     if (a.team == null && a.teamnum == parsed)
                         a.team = (string)W1[1];
 
-            teams.Add(new Team((string)n2[1], (string)W1[1], "", ""));
+            teams.Add(new Team((string)n2[1], (string)W1[1], "", "", (Collection<string>)B[1]));
             ret.Add(teams);
             ret.Add(caps);
             ret.Add(questions);
@@ -306,13 +320,11 @@ public class Attribute
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
-        return ret;
-    }
 
-    public Collection<object> B2(Collection<object> n1, Collection<object> cp, Collection<object> B)
-    {
-        Collection<object> ret = new Collection<object>();
-        ret.Add(null);
+        Collection<string> col = (Collection<string>)B[1];
+        col.Add((string)w1[0]);
+
+        ret.Add(col);
         return ret;
     }
 
@@ -320,13 +332,11 @@ public class Attribute
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
-        return ret;
-    }
 
-    public Collection<object> B4(Collection<object> n1)
-    {
-        Collection<object> ret = new Collection<object>();
-        ret.Add(null);
+        Collection<string> col = new Collection<string>();
+        col.Add((string)w1[0]);
+
+        ret.Add(col);
         return ret;
     }
 
@@ -334,13 +344,11 @@ public class Attribute
     {
         Collection<object> ret = new Collection<object>();
         ret.Add(null);
-        return ret;
-    }
 
-    public Collection<object> BB4(Collection<object> n1, Collection<object> p)
-    {
-        Collection<object> ret = new Collection<object>();
-        ret.Add(null);
+        Collection<string> col = new Collection<string>();
+        col.Add((string)w1[0]);
+
+        ret.Add(col);
         return ret;
     }
 
