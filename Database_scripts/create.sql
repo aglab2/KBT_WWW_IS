@@ -39,7 +39,7 @@ CREATE TABLE Player (
 	birthday smalldatetime,
 	CONSTRAINT PK_Player PRIMARY KEY (id ASC),
 	CONSTRAINT FK_Player_Team FOREIGN KEY (team_id)
-		REFERENCES Team(id),
+		REFERENCES Team(id) ON DELETE SET NULL,
 	CONSTRAINT U_Player UNIQUE(name, birthday)
 );
 
@@ -99,8 +99,9 @@ CREATE TABLE Answer (
 	CONSTRAINT FK_Answer_GameRound FOREIGN KEY (gameround_id)
 		REFERENCES GameRound(id),
 	CONSTRAINT FK_Answer_Team FOREIGN KEY (team_id)
-		REFERENCES Team(id),
+		REFERENCES Team(id) ON DELETE CASCADE,
 	CONSTRAINT FK_Answer_Question FOREIGN KEY (question_id)
+	
 		REFERENCES Question(id),
 	CONSTRAINT PK_Answer PRIMARY KEY (
 		gameround_id ASC,
@@ -121,7 +122,7 @@ CREATE TABLE TeamTournament (
 	regcard_number nvarchar(max),
 	age_category_id   integer NOT NULL, --NOT NULL: это нужно?
 	CONSTRAINT FK_TeamTournament_Team FOREIGN KEY (team_id)
-		REFERENCES Team(id),
+		REFERENCES Team(id) ON DELETE CASCADE,
 	CONSTRAINT FK_TeamTournament_Tournament FOREIGN KEY (tournament_id)
 		REFERENCES Tournament(id),
 	CONSTRAINT PK_TeamTournament PRIMARY KEY (
@@ -135,9 +136,9 @@ CREATE TABLE PlayerTeamGameround (
 	gameround_id integer NOT NULL,
 	team_id      integer NOT NULL,
 	CONSTRAINT FK_PlayerTeamGameround_Player FOREIGN KEY (player_id)
-		REFERENCES Player(id),
+		REFERENCES Player(id) ON DELETE CASCADE,
 	CONSTRAINT FK_PlayerTeamGameround_Team FOREIGN KEY (team_id)
-		REFERENCES Team(id),
+		REFERENCES Team(id) ON DELETE CASCADE,
 	CONSTRAINT FK_PlayerTeamGameround_GameRound FOREIGN KEY (gameround_id)
 		REFERENCES GameRound(id),
 	CONSTRAINT PK_PlayerTeamGameround PRIMARY KEY (
@@ -152,7 +153,7 @@ CREATE TABLE PlayerSeason (
 	season_id   integer NOT NULL,
 	schoolgrade integer,
 	CONSTRAINT FK_PlayerSeason_Player FOREIGN KEY (player_id)
-		REFERENCES Player(id),
+		REFERENCES Player(id) ON DELETE CASCADE,
 	CONSTRAINT FK_PlayerSeason_Season FOREIGN KEY (season_id)
 		REFERENCES Season(id),
 	CONSTRAINT PK_PlayerSeason PRIMARY KEY (
@@ -329,15 +330,7 @@ AS
 		raiserror('No such tournament!', 18, -1);
 
 	DECLARE @age_category_id INT;
-	IF @age_category IS NOT NULL
-	BEGIN
-		SET @age_category_id = (SELECT id FROM AgeCategory WHERE AgeCategory.name = @age_category)
-		IF @age_category_id IS NULL
-			INSERT INTO AgeCategory(clgroup, name) VALUES (0, @age_category) --what the hell clgroup?
-		SET @age_category_id = (SELECT id FROM AgeCategory WHERE AgeCategory.name = @age_category)
-	END
-	ELSE
-		SET @age_category_id = 0;
+	SET @age_category_id = 0;
 
 	DECLARE @id NVARCHAR(max);
 	SET @id = (SELECT regcard_number FROM TeamTournament WHERE team_id=@team_id AND tournament_id=@tournament_id)
