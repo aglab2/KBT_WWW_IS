@@ -75,7 +75,7 @@ CREATE TABLE GameRound (
 	gamenumber    integer NOT NULL,
 	CONSTRAINT PK_GameRound PRIMARY KEY (id ASC),
 	CONSTRAINT FK_GameRound_Tournament FOREIGN KEY (tournament_id)
-		REFERENCES Tournament(id)
+		REFERENCES Tournament(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Question (
@@ -124,7 +124,7 @@ CREATE TABLE TeamTournament (
 	CONSTRAINT FK_TeamTournament_Team FOREIGN KEY (team_id)
 		REFERENCES Team(id) ON DELETE CASCADE,
 	CONSTRAINT FK_TeamTournament_Tournament FOREIGN KEY (tournament_id)
-		REFERENCES Tournament(id),
+		REFERENCES Tournament(id) ON DELETE CASCADE,
 	CONSTRAINT PK_TeamTournament PRIMARY KEY (
 		team_id ASC,
 		tournament_id ASC
@@ -140,7 +140,7 @@ CREATE TABLE PlayerTeamGameround (
 	CONSTRAINT FK_PlayerTeamGameround_Team FOREIGN KEY (team_id)
 		REFERENCES Team(id) ON DELETE CASCADE,
 	CONSTRAINT FK_PlayerTeamGameround_GameRound FOREIGN KEY (gameround_id)
-		REFERENCES GameRound(id),
+		REFERENCES GameRound(id) ON DELETE CASCADE,
 	CONSTRAINT PK_PlayerTeamGameround PRIMARY KEY (
 		player_id ASC,
 		team_id ASC,
