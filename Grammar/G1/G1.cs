@@ -101,7 +101,16 @@ public class Attribute
         arg.Add(Tuple.Create("@tournament_name", TournamentName));
         arg.Add(Tuple.Create("@tournament_city", city));
         arg.Add(Tuple.Create("@regcard_number", RegCardNumber));
+        ret.Add(comm);
+
+        arg = new Collection<Tuple<string, string>>();
+        comm = new Tuple<string, Collection<Tuple<string, string>>>("addAgeCategory2TeamTournament", arg);
+        arg.Add(Tuple.Create("@team_name", TheTeam.name));
+        arg.Add(Tuple.Create("@tournament_name", TournamentName));
+        arg.Add(Tuple.Create("@tournament_city", city));
+        arg.Add(Tuple.Create("@regcard_number", RegCardNumber));
         arg.Add(Tuple.Create("@age_category", TheTeam.age_category)); 
+        
         ret.Add(comm);
 
 

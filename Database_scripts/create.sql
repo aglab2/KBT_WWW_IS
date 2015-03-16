@@ -211,7 +211,7 @@ CREATE TABLE ExternalT (
 );
 
 CREATE TABLE AgeCategory (
-	id    integer NOT NULL,
+	id    integer IDENTITY(1,1) NOT NULL,
 	clgroup integer NOT NULL,
 	name  nvarchar(max) NOT NULL,
 	CONSTRAINT PK_AgeCategory PRIMARY KEY (id ASC)
@@ -306,12 +306,13 @@ AS
 	END
 GO
 
-CREATE PROCEDURE addTeam2Tournament
+
+CREATE PROCEDURE addAgeCategory2TeamTournament
 	@team_name NVARCHAR(max),
 	@tournament_name NVARCHAR(max),
 	@tournament_city NVARCHAR(max),
 	@regcard_number NVARCHAR(max),
-	@age_category NVARCHAR(max) = NULL --make max = 2????
+	@age_category NVARCHAR(max)
 AS
 	DECLARE @city_id INT;
 	SET @city_id = (SELECT id FROM Address WHERE name = @tournament_city);
@@ -329,23 +330,51 @@ AS
 		raiserror('No such tournament!', 18, -1);
 
 	DECLARE @age_category_id INT;
-	IF @age_category IS NOT NULL
+	SET @age_category_id = (SELECT id FROM AgeCategory WHERE AgeCategory.name = @age_category)
+	IF @age_category_id IS NULL
 	BEGIN
-		SET @age_category_id = (SELECT id FROM AgeCategory WHERE AgeCategory.name = @age_category)
-		IF @age_category_id IS NULL
-			INSERT INTO AgeCategory(clgroup, name) VALUES (0, @age_category) --what the hell clgroup?
-		SET @age_category_id = (SELECT id FROM AgeCategory WHERE AgeCategory.name = @age_category)
+		INSERT INTO AgeCategory(clgroup, name) VALUES (0, @age_category) --what the hell clgroup?
+		SET @age_category_id = IDENT_CURRENT('AgeCategory');
 	END
-	ELSE
-		SET @age_category_id = 0;
+
+	DECLARE @age_category_cur NVARCHAR(max);
+	SET @age_category_cur = (SELECT age_category_id FROM TeamTournament WHERE team_id=@team_id AND tournament_id=@tournament_id)
+	IF @age_category_cur IS NULL
+		raiserror('No such team in tournament!', 18, -1);
+
+	SET @age_category_cur = @age_category_cur | POWER(2, @age_category_id - 1);
+
+	UPDATE TeamTournament SET age_category_id = @age_category_cur WHERE team_id=@team_id AND tournament_id=@tournament_id;
+GO
+
+
+CREATE PROCEDURE addTeam2Tournament
+	@team_name NVARCHAR(max),
+	@tournament_name NVARCHAR(max),
+	@tournament_city NVARCHAR(max),
+	@regcard_number NVARCHAR(max)
+AS
+	DECLARE @city_id INT;
+	SET @city_id = (SELECT id FROM Address WHERE name = @tournament_city);
+	IF @city_id IS NULL
+		raiserror('No such city!', 20, -1);
+
+	DECLARE @team_id INT;
+	SET @team_id = (SELECT id FROM Team WHERE name = @team_name);
+	IF @team_id IS NULL
+		raiserror('No such team!', 18, -1);/*I like magical constants*/
+
+	DECLARE @tournament_id INT;
+	SET @tournament_id = (SELECT id FROM Tournament WHERE name = @tournament_name AND address_id = @city_id);	
+	IF @tournament_id IS NULL
+		raiserror('No such tournament!', 18, -1);
 
 	DECLARE @id NVARCHAR(max);
 	SET @id = (SELECT regcard_number FROM TeamTournament WHERE team_id=@team_id AND tournament_id=@tournament_id)
 
 	IF @id IS NULL
 	BEGIN
-		INSERT INTO TeamTournament(team_id, tournament_id, regcard_number, age_category_id) VALUES (@team_id, @tournament_id, @regcard_number, @age_category_id);
-		/*Age category*/
+		INSERT INTO TeamTournament(team_id, tournament_id, regcard_number, age_category_id) VALUES (@team_id, @tournament_id, @regcard_number, 0);
 	END
 	ELSE
 	BEGIN
@@ -364,7 +393,7 @@ CREATE PROCEDURE addPlayer
 AS
 	DECLARE @player_id INT;
 	IF @birthday IS NULL
-		SET @player_id = (SELECT id FROM Player WHERE name = @name);
+		SET @player_id = (SELECT id FROM Player WHERE name = @name AND birthday IS NULL);
 	ELSE
 		SET @player_id = (SELECT id FROM Player WHERE name = @name AND birthday = @birthday); 
 
@@ -389,7 +418,10 @@ AS
 
 	IF @is_captain = 1
 	BEGIN
-		SET @player_id = (SELECT id FROM Player WHERE name = @name);
+		IF @birthday IS NULL
+			SET @player_id = (SELECT id FROM Player WHERE name = @name AND birthday IS NULL);
+		ELSE
+			SET @player_id = (SELECT id FROM Player WHERE name = @name AND birthday = @birthday); 
 		UPDATE Team SET captain_id = @player_id WHERE id = @team_id;
 	END
 	
@@ -432,7 +464,7 @@ AS
 
 	DECLARE @player_id INT;
 	IF @player_birthday IS NULL
-		SET @player_id = (SELECT id FROM Player WHERE name = @player_name);
+		SET @player_id = (SELECT id FROM Player WHERE name = @player_name AND birthday IS NULL);
 	ELSE
 		SET @player_id = (SELECT id FROM Player WHERE name = @player_name AND birthday = @player_birthday); 
 
