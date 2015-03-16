@@ -191,22 +191,41 @@ public class Attribute
         if (title == "Название команды")
         {
             if (TheTeam.name == "") TheTeam.name = (string)W2[1];
-            else doubledeclare = (string)W1[1];
+            else doubledeclare = title;
         }
         else if (title == "Возрастная категория")
         {
             if (TheTeam.age_category == "") TheTeam.age_category = (string)W2[1];
-            else doubledeclare = (string)W1[1];
+            else doubledeclare = title;
         }
         else if (title == "Город")
         {
             if (TheTeam.city == "") TheTeam.city = (string)W2[1];
-            else doubledeclare = (string)W1[1];
+            else doubledeclare = title;
         }
         else if (title == "ID в рейтинге")
         {
             if (TheTeam.global_id == "") TheTeam.global_id = (string)W2[1];
-            else doubledeclare = (string)W1[1];
+            else doubledeclare = title;
+        }
+        else if (title == "Email/тел.")
+        {
+            string[] spl = ((string)W2[1]).Split(new char[] { ',', '/' });
+            foreach (string i in spl)
+            {
+                string s = i.Trim();
+                if (s == "") continue;
+                if (s.Contains("@"))
+                {
+                    if (TheTeam.email == "") TheTeam.email = s;
+                    else doubledeclare = title;
+                }
+                else
+                {
+                    if (TheTeam.phone == "") TheTeam.phone = s;
+                    else doubledeclare = title;
+                }
+            }
         }
 
         if (doubledeclare != null)
@@ -221,154 +240,6 @@ public class Attribute
     public Collection<object> D2(Collection<object> W1, Collection<object> c1, Collection<object> nl, Collection<object> D)
     {
         return D;
-    }
-
-    public Collection<object> Email1(Collection<object> w1, Collection<object> s1, Collection<object> w2,
-    Collection<object> d1, Collection<object> c1, Collection<object> EmailWord, 
-        Collection<object> dd3, Collection<object> Phone, Collection<object> nl, Collection<object> E)
-    {
-        Collection<object> ret = new Collection<object>();
-        ret.Add(null);
-
-        Team TheTeam = (Team)E[1];
-        Collection<Player> Players = (Collection<Player>)E[2];
-        Collection<Tour> Tours = (Collection<Tour>)E[3];
-
-        try
-        {
-            //Email/тел.
-            if ((string)w1[0] == "Email" && (string)w2[0] == "тел")
-            {
-                TheTeam.phone = (string)Phone[1];
-                TheTeam.email = (string)EmailWord[1];
-            }
-            else throw new Exception("Wrong e-mail/phone description!!!");
-        }
-        catch (Exception e)
-        {
-            ret[0] = e;
-        }
-
-        ret.Add(TheTeam);
-        ret.Add(Players);
-        ret.Add(Tours);
-
-        return ret;
-    }
-
-    public Collection<object> Email2(Collection<object> w1, Collection<object> s1, Collection<object> w2, Collection<object> d1,
-        Collection<object> c1, Collection<object> EmailWord, Collection<object> nl, Collection<object> E)
-    {
-        Collection<object> ret = new Collection<object>();
-        ret.Add(null);
-
-        Team TheTeam = (Team)E[1];
-        Collection<Player> Players = (Collection<Player>)E[2];
-        Collection<Tour> Tours = (Collection<Tour>)E[3];
-
-        try
-        {
-            //Email/тел.
-            if ((string)w1[0] == "Email" && (string)w2[0] == "тел")
-            {
-                TheTeam.email = (string)EmailWord[1];
-            }
-            else throw new Exception("Wrong e-mail/phone description!!!");
-        }
-        catch (Exception e)
-        {
-            ret[0] = e;
-        }
-
-        ret.Add(TheTeam);
-        ret.Add(Players);
-        ret.Add(Tours);
-
-        return ret;
-    }
-
-    public Collection<object> Email3(Collection<object> w1, Collection<object> s1, Collection<object> w2, Collection<object> d1,
-    Collection<object> c1, Collection<object> nl, Collection<object> E)
-    {
-        return E;
-    }
-
-    public Collection<object> Email5(Collection<object> w1, Collection<object> s1, Collection<object> w2, Collection<object> d1,
-    Collection<object> c1, Collection<object> Phone, Collection<object> w3, Collection<object> E)
-    {
-        Collection<object> ret = new Collection<object>();
-        ret.Add(null);
-
-        Team TheTeam = (Team)E[1];
-        Collection<Player> Players = (Collection<Player>)E[2];
-        Collection<Tour> Tours = (Collection<Tour>)E[3];
-
-        try
-        {
-            //Email/тел.
-            if ((string)w1[0] == "Email" && (string)w2[0] == "тел")
-            {
-                TheTeam.phone = (string)Phone[1];
-            }
-            else throw new Exception("Wrong e-mail/phone description!!!");
-        }
-        catch (Exception e)
-        {
-            ret[0] = e;
-        }
-
-        ret.Add(TheTeam);
-        ret.Add(Players);
-        ret.Add(Tours);
-
-        return ret;
-    }
-
-    public Collection<object> E(Collection<object> W1, Collection<object> c1, Collection<object> W2, Collection<object> nl, Collection<object> E)
-    {
-        Collection<object> ret = new Collection<object>();
-        ret.Add(null);
-
-        Team TheTeam = (Team)E[1];
-        Collection<Player> Players = (Collection<Player>)E[2];
-        Collection<Tour> Tours = (Collection<Tour>)E[3];
-
-        string doubledeclare = null;
-        string title = ((string)W1[1]).Trim();
-
-        if (title == "Название команды")
-        {
-            if (TheTeam.name == "") TheTeam.name = (string)W2[1];
-            else doubledeclare = (string)W1[1];
-        }
-        else if (title == "Возрастная категория")
-        {
-            if (TheTeam.age_category == "") TheTeam.age_category = (string)W2[1];
-            else doubledeclare = (string)W1[1]; //TODO
-        }
-        else if (title == "Город")
-        {
-            if (TheTeam.city == "") TheTeam.city = (string)W2[1];
-            else doubledeclare = (string)W1[1];
-        }
-        else if (title == "ID в рейтинге")
-        {
-            if (TheTeam.global_id == "") TheTeam.global_id = (string)W2[1];
-            else doubledeclare = (string)W1[1];
-        }
-
-        if (doubledeclare != null)
-            ret[0] = new Exception("Double DECLARE! " + doubledeclare);
-
-        ret.Add(TheTeam);
-        ret.Add(Players);
-        ret.Add(Tours);
-        return ret;
-    }
-
-    public Collection<object> E2(Collection<object> W1, Collection<object> c1, Collection<object> nl, Collection<object> E)
-    {
-        return E;
     }
 
     public Collection<object> NextP(Collection<object> P)

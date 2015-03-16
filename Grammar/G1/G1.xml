@@ -16,7 +16,7 @@
 	<NS>DateWord</NS>
 	<NS>Word</NS>
 	<NS>Word[]</NS>
-	<NS>Word/:#</NS>
+	<NS>Word:#</NS>
 	<NS>Word@</NS>
 	<NS>Word/</NS>
 	<NS>Word/@</NS>
@@ -58,7 +58,7 @@
 			<PRS>D</PRS>
 		</left>
 		<right>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 			<PRS>:</PRS>
 			<PRS>Word</PRS>
 			<PRS>nl</PRS>
@@ -70,141 +70,22 @@
 			<PRS>D</PRS>
 		</left>
 		<right>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 			<PRS>:</PRS>
 			<PRS>nl</PRS>
 			<PRS>D</PRS>
 		</right>
 	</PR>
-	<PR attr="Email1">
+  
+	<PR attr="NextP">
 		<left>
 			<PRS>D</PRS>
 		</left>
 		<right>
-			<PRS>w</PRS>
-			<PRS>/</PRS>
-			<PRS>w</PRS>
-			<PRS>.</PRS>
-			<PRS>:</PRS>
-			<PRS>EmailWord</PRS>
-			<PRS>/</PRS>
-			<PRS>Word/@</PRS>
-			<PRS>nl</PRS>
-			<PRS>E</PRS>
+			<PRS>P</PRS>
 		</right>
 	</PR>
-
-	<PR attr="Email1">
-		<left>
-			<PRS>D</PRS>
-		</left>
-		<right>
-			<PRS>w</PRS>
-			<PRS>/</PRS>
-			<PRS>w</PRS>
-			<PRS>.</PRS>
-			<PRS>:</PRS>
-			<PRS>Space</PRS>
-			<PRS>/</PRS>
-			<PRS>Word/@</PRS>
-			<PRS>nl</PRS>
-			<PRS>E</PRS>
-		</right>
-	</PR>
-
 	
-	<PR attr="Email5">
-		<left>
-			<PRS>D</PRS>
-		</left>
-		<right>
-			<PRS>w</PRS>
-			<PRS>/</PRS>
-			<PRS>w</PRS>
-			<PRS>.</PRS>
-			<PRS>:</PRS>
-			<PRS>Word/@</PRS>
-			<PRS>nl</PRS>
-			<PRS>E</PRS>
-		</right>
-	</PR>
-
-	<PR attr="Email2">
-		<left>
-			<PRS>D</PRS>
-		</left>
-		<right>
-			<PRS>w</PRS>
-			<PRS>/</PRS>
-			<PRS>w</PRS>
-			<PRS>.</PRS>
-			<PRS>:</PRS>
-			<PRS>EmailWord</PRS>
-			<PRS>nl</PRS>
-			<PRS>E</PRS>
-		</right>
-	</PR>
-
-	<PR attr="Email3">
-		<left>
-			<PRS>D</PRS>
-		</left>
-		<right>
-			<PRS>w</PRS>
-			<PRS>/</PRS>
-			<PRS>w</PRS>
-			<PRS>.</PRS>
-			<PRS>:</PRS>
-			<PRS>nl</PRS>
-			<PRS>E</PRS>
-		</right>
-	</PR>
-
-
-	<PR attr="E">
-		<left>
-			<PRS>E</PRS>
-		</left>
-		<right>
-			<PRS>Word/:#</PRS>
-			<PRS>:</PRS>
-			<PRS>Word</PRS>
-			<PRS>nl</PRS>
-			<PRS>E</PRS>
-		</right>
-	</PR>
-	<PR attr="E2">
-		<left>
-			<PRS>E</PRS>
-		</left>
-		<right>
-			<PRS>Word/:#</PRS>
-			<PRS>:</PRS>
-			<PRS>nl</PRS>
-			<PRS>E</PRS>
-		</right>
-	</PR>
-
-	<PR attr="NextP">
-		<left>
-			<PRS>D</PRS>
-		</left>
-		<right>
-			<PRS>P</PRS>
-		</right>
-	</PR>
-	<PR attr="NextP">
-		<left>
-			<PRS>E</PRS>
-		</left>
-		<right>
-			<PRS>P</PRS>
-		</right>
-	</PR>
-
-
-
-
   <PR attr="P2">
     <left>
       <PRS>P</PRS>
@@ -665,92 +546,101 @@
 
   <PR attr="w">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>w</PRS>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</right>
 	</PR>
 	<PR attr="w">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>n</PRS>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</right>
 	</PR>
 	<PR attr="w">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>]</PRS>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</right>
 	</PR>
 	<PR attr="w">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>[</PRS>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</right>
 	</PR>
 	<PR attr="w">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>,</PRS>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</right>
 	</PR>
 	<PR attr="w">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>.</PRS>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</right>
 	</PR>
 	<PR attr="w">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>@</PRS>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</right>
 	</PR>
   <PR attr="w">
     <left>
-      <PRS>Word/:#</PRS>
+      <PRS>Word:#</PRS>
     </left>
     <right>
       <PRS>p</PRS>
-      <PRS>Word/:#</PRS>
+      <PRS>Word:#</PRS>
     </right>
   </PR>
   <PR attr="w">
     <left>
-      <PRS>Word/:#</PRS>
+      <PRS>Word:#</PRS>
     </left>
     <right>
       <PRS>+</PRS>
-      <PRS>Word/:#</PRS>
+      <PRS>Word:#</PRS>
     </right>
   </PR>
   <PR attr="w">
     <left>
-      <PRS>Word/:#</PRS>
+      <PRS>Word:#</PRS>
     </left>
     <right>
       <PRS>c</PRS>
-      <PRS>Word/:#</PRS>
+      <PRS>Word:#</PRS>
+    </right>
+  </PR>
+  <PR attr="w">
+    <left>
+      <PRS>Word:#</PRS>
+    </left>
+    <right>
+      <PRS>/</PRS>
+      <PRS>Word:#</PRS>
     </right>
   </PR>
 
@@ -758,7 +648,7 @@
 
   <PR attr="w1">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>w</PRS>
@@ -766,7 +656,7 @@
 	</PR>
 	<PR attr="w1">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>n</PRS>
@@ -774,7 +664,7 @@
 	</PR>
 	<PR attr="w1">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>]</PRS>
@@ -782,7 +672,7 @@
 	</PR>
 	<PR attr="w1">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>[</PRS>
@@ -790,7 +680,7 @@
 	</PR>
 	<PR attr="w1">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>,</PRS>
@@ -798,7 +688,7 @@
 	</PR>
 	<PR attr="w1">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>.</PRS>
@@ -806,7 +696,7 @@
 	</PR>
 	<PR attr="w1">
 		<left>
-			<PRS>Word/:#</PRS>
+			<PRS>Word:#</PRS>
 		</left>
 		<right>
 			<PRS>@</PRS>
@@ -814,7 +704,7 @@
 	</PR>
   <PR attr="w1">
     <left>
-      <PRS>Word/:#</PRS>
+      <PRS>Word:#</PRS>
     </left>
     <right>
       <PRS>p</PRS>
@@ -822,7 +712,7 @@
   </PR>
   <PR attr="w1">
     <left>
-      <PRS>Word/:#</PRS>
+      <PRS>Word:#</PRS>
     </left>
     <right>
       <PRS>+</PRS>
@@ -830,10 +720,18 @@
   </PR>
   <PR attr="w1">
     <left>
-      <PRS>Word/:#</PRS>
+      <PRS>Word:#</PRS>
     </left>
     <right>
       <PRS>c</PRS>
+    </right>
+  </PR>
+  <PR attr="w1">
+    <left>
+      <PRS>Word:#</PRS>
+    </left>
+    <right>
+      <PRS>/</PRS>
     </right>
   </PR>
 
