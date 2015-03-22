@@ -90,6 +90,7 @@ CREATE TABLE Question (
 );
 
 CREATE TABLE Answer (
+	id           integer NOT NULL,
 	gameround_id integer NOT NULL,
 	team_id      integer NOT NULL,
 	question_id  integer,
@@ -101,13 +102,13 @@ CREATE TABLE Answer (
 	CONSTRAINT FK_Answer_Team FOREIGN KEY (team_id)
 		REFERENCES Team(id) ON DELETE CASCADE,
 	CONSTRAINT FK_Answer_Question FOREIGN KEY (question_id)
-	
 		REFERENCES Question(id),
-	CONSTRAINT PK_Answer PRIMARY KEY (
+	CONSTRAINT U_Answer UNIQUE (
 		gameround_id ASC,
 		team_id ASC,
 		question_num ASC
-	)
+	),
+	CONSTRAINT PK_Answer PRIMARY KEY (id ASC)
 );
 /*
 CREATE UNIQUE INDEX IX_Answer ON Answer (
@@ -162,30 +163,20 @@ CREATE TABLE PlayerSeason (
 	)
 );
 
-CREATE TABLE EntityDict (
+CREATE TABLE EntityAttributeDict (
 	id   integer IDENTITY(1,1) NOT NULL,
 	name nvarchar(300) NOT NULL,
-	CONSTRAINT PK_EntityDict PRIMARY KEY (id ASC),
-	CONSTRAINT U_EntityDict UNIQUE (name)
-);
-
-CREATE TABLE AttributeDict (
-	id   integer IDENTITY(1,1) NOT NULL,
-	name nvarchar(300) NOT NULL,
-	CONSTRAINT PK_AttributeDict PRIMARY KEY (id ASC),
-	CONSTRAINT U_AttributeDict UNIQUE (name)
+	CONSTRAINT PK_EntityAttributeDict PRIMARY KEY (id ASC),
+	CONSTRAINT U_EntityAttributeDict UNIQUE (name)
 );
 
 CREATE TABLE History (
 	instance_id        integer NOT NULL,
-	entity_id          integer NOT NULL,
 	attribute_id       integer NOT NULL,
 	modification_date  datetime,
 	previous_value     nvarchar(max),
-	CONSTRAINT FK_History_EntityDict FOREIGN KEY (entity_id)
-		REFERENCES EntityDict(id),
-	CONSTRAINT FK_History_AttributeDict FOREIGN KEY (attribute_id)
-		REFERENCES AttributeDict(id),
+	CONSTRAINT FK_History_EntityAttributeDict FOREIGN KEY (attribute_id)
+		REFERENCES EntityAttributeDict(id),
 	CONSTRAINT PK_History PRIMARY KEY (
 		attribute_id ASC,
 		instance_id ASC,
@@ -194,15 +185,17 @@ CREATE TABLE History (
 );
 
 CREATE TABLE ExternalT (
+	id           integer NOT NULL,
 	instance_id  integer NOT NULL,
 	attribute_id integer NOT NULL,
 	value        nvarchar(max),
 	CONSTRAINT FK_ExternalT_EntityAttributeDict FOREIGN KEY (attribute_id)
 		REFERENCES EntityAttributeDict(id),
-	CONSTRAINT PK_ExternalT PRIMARY KEY (
+	CONSTRAINT U_ExternalT UNIQUE (
 		attribute_id ASC,
 		instance_id ASC
-	)
+	),
+	CONSTRAINT PK_ExternalT PRIMARY KEY (id ASC)
 );
 
 CREATE TABLE AgeCategory (
