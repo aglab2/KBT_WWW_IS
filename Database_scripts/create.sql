@@ -181,10 +181,6 @@ CREATE TABLE History (
 		attribute_id ASC,
 		instance_id ASC,
 		modification_date ASC
-	),
-	CONSTRAINT U_History UNIQUE (
-		attribute_id,
-		instance_id
 	)
 );
 
