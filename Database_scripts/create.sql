@@ -162,27 +162,34 @@ CREATE TABLE PlayerSeason (
 	)
 );
 
-CREATE TABLE EntityAttributeDict (
+CREATE TABLE EntityDict (
 	id   integer IDENTITY(1,1) NOT NULL,
 	name nvarchar(300) NOT NULL,
-	CONSTRAINT PK_EntityAttributeDict PRIMARY KEY (id ASC),
-	CONSTRAINT U_EntityAttributeDict UNIQUE (name)
+	CONSTRAINT PK_EntityDict PRIMARY KEY (id ASC),
+	CONSTRAINT U_EntityDict UNIQUE (name)
+);
+
+CREATE TABLE AttributeDict (
+	id   integer IDENTITY(1,1) NOT NULL,
+	name nvarchar(300) NOT NULL,
+	CONSTRAINT PK_AttributeDict PRIMARY KEY (id ASC),
+	CONSTRAINT U_AttributeDict UNIQUE (name)
 );
 
 CREATE TABLE History (
 	instance_id        integer NOT NULL,
+	entity_id          integer NOT NULL,
 	attribute_id       integer NOT NULL,
 	modification_date  datetime,
-	gameround_id       integer NOT NULL,
 	previous_value     nvarchar(max),
-	CONSTRAINT FK_History_EntityAttributeDict FOREIGN KEY (attribute_id)
-		REFERENCES EntityAttributeDict(id),
-	CONSTRAINT FK_History_GameRound FOREIGN KEY (gameround_id)
-		REFERENCES GameRound(id),
+	CONSTRAINT FK_History_EntityDict FOREIGN KEY (entity_id)
+		REFERENCES EntityDict(id),
+	CONSTRAINT FK_History_AttributeDict FOREIGN KEY (attribute_id)
+		REFERENCES AttributeDict(id),
 	CONSTRAINT PK_History PRIMARY KEY (
 		attribute_id ASC,
 		instance_id ASC,
-		gameround_id ASC
+		modification_date ASC
 	)
 );
 
