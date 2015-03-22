@@ -8,6 +8,7 @@ DROP PROCEDURE addAnswer;
 DROP PROCEDURE addPlayer2GameRound;
 DROP PROCEDURE addAnswerByGlobalID;
 DROP PROCEDURE addAgeCategory2TeamTournament;
+DROP PROCEDURE addAttribute2Dict;
 
 DROP TABLE AgeCategory;
 DROP TABLE ExternalT;

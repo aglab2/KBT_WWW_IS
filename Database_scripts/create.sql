@@ -164,8 +164,9 @@ CREATE TABLE PlayerSeason (
 
 CREATE TABLE EntityAttributeDict (
 	id   integer IDENTITY(1,1) NOT NULL,
-	name nvarchar(max) NOT NULL,
-	CONSTRAINT PK_EntityAttributeDict PRIMARY KEY (id ASC)
+	name nvarchar(300) NOT NULL,
+	CONSTRAINT PK_EntityAttributeDict PRIMARY KEY (id ASC),
+	CONSTRAINT U_EntityAttributeDict UNIQUE (name)
 );
 
 CREATE TABLE History (
@@ -631,4 +632,13 @@ AS
 	BEGIN
 		INSERT Answer (gameround_id, team_id, question_id, question_num, answer_text, is_valid) VALUES (@gameround_id, @team_id, NULL, @question_num, @answer_text, @is_valid);
 	END
+GO
+
+CREATE PROCEDURE addAttribute2Dict
+	@entity_name nvarchar(max) = '',
+	@attribute_name nvarchar(max) = ''
+AS
+	DECLARE @fullname nvarchar(max);
+	SET @fullname = @entity_name + '.' + @attribute_name;
+	INSERT INTO EntityAttributeDict(name) VALUES (@fullname);
 GO
