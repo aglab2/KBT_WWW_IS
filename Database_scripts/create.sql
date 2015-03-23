@@ -494,7 +494,7 @@ CREATE PROCEDURE addAnswer
 	@team_name NVARCHAR(MAX),
 	@question_num INT,
 	@answer_text NVARCHAR(MAX),
-	@is_valid BIT,
+	@is_valid BIT = NULL,
 	@tournament_name NVARCHAR(MAX),
 	@city NVARCHAR(MAX),
 	@gamenumber INT
