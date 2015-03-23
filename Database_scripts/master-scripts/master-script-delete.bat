@@ -1,2 +1,2 @@
-sqlcmd -S VLADVIS\SQLEXPRESS -i delete-m.sql
+sqlcmd -S VLADVIS\SQLEXPRESS -i delete.sql
 PAUSE
