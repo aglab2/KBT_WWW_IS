@@ -193,14 +193,6 @@ CREATE TRIGGER T_Tournament
 	ON Tournament
 	INSTEAD OF UPDATE
 AS
-	DECLARE @i  INT, @name  NVARCHAR(max), @addr  INT, @pass  NVARCHAR(max);
-	DECLARE @i_ INT, @name_ NVARCHAR(max), @addr_ INT, @pass_ NVARCHAR(max);
-
-	DECLARE CUR2 CURSOR FOR
-	SELECT id, name, address_id, password FROM deleted
-	DECLARE CUR1 CURSOR FOR
-	SELECT id, name, address_id, password FROM inserted
-
 	DECLARE @att_id1 INT;
 	SET @att_id1 = (SELECT id FROM EntityAttributeDict WHERE name='Tournament.name')
 	if (@att_id1 IS NULL)
@@ -216,41 +208,56 @@ AS
 	if (@att_id3 IS NULL)
 		raiserror('No such historical entry! (Tournament.password)', 18, -1);
 
-	OPEN CUR1
-	OPEN CUR2
-	WHILE @@FETCH_STATUS=0
-	BEGIN
-		FETCH NEXT FROM CUR1 INTO @i, @name, @addr, @pass;
-		FETCH NEXT FROM CUR2 INTO @i_, @name_, @addr_, @pass_;
+	DECLARE @test NVARCHAR(max)
 
-		IF @name != '' AND @name != @name_
-		BEGIN
-			UPDATE Tournament SET name = @name WHERE id = @i;
-			INSERT INTO History(instance_id, attribute_id, modification_date, previous_value) 
-				VALUES (@i, @att_id1, GETDATE(), @name_)
-		END		
+	INSERT INTO History(instance_id, attribute_id, modification_date, previous_value) 
+		SELECT deleted.id, @att_id1, GETDATE(), deleted.name FROM inserted, deleted
+		WHERE inserted.name != deleted.name
+		AND inserted.name IS NOT NULL
+		AND inserted.name != ''
+		AND inserted.id = deleted.id
 
-		IF @addr != '' AND @addr != @addr_ 
-		BEGIN
-			UPDATE Tournament SET address_id = @addr WHERE id = @i;
-			INSERT INTO History(instance_id, attribute_id, modification_date, previous_value) 
-				VALUES (@i, @att_id2, GETDATE(), @addr_)
-		END 
+	INSERT INTO History(instance_id, attribute_id, modification_date, previous_value) 
+		SELECT deleted.id, @att_id2, GETDATE(), deleted.address_id FROM inserted, deleted
+		WHERE inserted.address_id != deleted.address_id
+		AND inserted.id = deleted.id
 
-		IF @pass != '' AND @pass != @pass_ 
-		BEGIN
-			UPDATE Tournament SET password = @pass WHERE id = @i;
-			INSERT INTO History(instance_id, attribute_id, modification_date, previous_value) 
-				VALUES (@i, @att_id2, GETDATE(), @pass_)	
-		END
+	INSERT INTO History(instance_id, attribute_id, modification_date, previous_value) 
+		SELECT deleted.id, @att_id3, GETDATE(), deleted.password FROM inserted, deleted
+		WHERE inserted.password != deleted.password
+		AND inserted.password IS NOT NULL
+		AND inserted.password != ''
+		AND inserted.id = deleted.id
 
-		FETCH NEXT FROM CUR2 INTO @i, @name, @addr, @pass;
-		FETCH NEXT FROM CUR1 INTO @i_, @name_, @addr_, @pass_;
-	END
-	CLOSE CUR1
-	CLOSE CUR2
-	DEALLOCATE CUR1
-	DEALLOCATE CUR2
+
+	UPDATE Tournament SET Tournament.name = inserted.name 
+	FROM Tournament, inserted, deleted
+		WHERE inserted.name != deleted.name
+		AND inserted.id = deleted.id
+		AND inserted.name IS NOT NULL
+		AND inserted.name != ''
+		AND Tournament.id = inserted.id
+
+	UPDATE Tournament SET Tournament.address_id = tmp.address_id 
+	FROM
+		Tournament
+	INNER JOIN
+		(SELECT inserted.id, inserted.address_id FROM inserted, deleted
+		WHERE inserted.address_id != deleted.address_id
+		AND inserted.id = deleted.id) tmp
+	ON Tournament.id = tmp.id
+
+	UPDATE Tournament SET Tournament.password = tmp.password 
+	FROM
+		Tournament
+	INNER JOIN
+		(SELECT inserted.id, inserted.password FROM inserted, deleted
+		WHERE inserted.password != deleted.password
+		AND inserted.id = deleted.id	
+		AND inserted.password IS NOT NULL
+		AND inserted.password != '') tmp
+	ON Tournament.id = tmp.id
+
 GO
 
 
