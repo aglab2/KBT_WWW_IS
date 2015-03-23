@@ -26,23 +26,30 @@ GO
 
 CREATE TRIGGER T_Team_Phone
 	ON Team
-	AFTER UPDATE
+	INSTEAD OF UPDATE
 AS
-	DECLARE @att_id INT;
-	SET @att_id = (SELECT id FROM EntityAttributeDict WHERE name='Team.phone')
-	if (@att_id IS NULL)
-		raiserror('No such historical entry!', 18, -1);
+	DECLARE @prev NVARCHAR(max);	
+	SET @prev = (SELECT deleted.phone FROM deleted, inserted WHERE deleted.id = inserted.id);
+	
+	DECLARE @cur NVARCHAR(max);
+	SET @cur = (SELECT inserted.phone FROM deleted, inserted WHERE inserted.id = deleted.id);
+	
+	DECLARE @id INT;
+	SET @id = (SELECT inserted.id FROM deleted, inserted WHERE inserted.id = deleted.id);
+	
+	IF(@cur IS NOT NULL AND @cur != '' AND @cur != @prev)
+	BEGIN
+		UPDATE Team SET phone = @cur WHERE id = @id;
 
-	INSERT INTO History(instance_id, attribute_id, modification_date, previous_value) 
+		DECLARE @att_id INT;
+		SET @att_id = (SELECT id FROM EntityAttributeDict WHERE name='Team.phone')
+		if (@att_id IS NULL)
+			raiserror('No such historical entry!', 18, -1);
+
+		INSERT INTO History(instance_id, attribute_id, modification_date, previous_value) 
 		SELECT deleted.id, @att_id, GETDATE(), deleted.phone
 		FROM deleted, inserted
 		WHERE deleted.id = inserted.id
 		AND deleted.phone != inserted.phone
-		AND inserted.phone != ''
-		AND inserted.phone IS NOT NULL
+	END
 GO
-
-SELECT *
-FROM EntityAttributeDict, History
-WHERE EntityAttributeDict.id = History.attribute_id
-ORDER BY History.instance_id
