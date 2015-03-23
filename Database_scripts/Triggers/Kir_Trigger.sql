@@ -46,12 +46,8 @@ AS
 
 	WHILE @@FETCH_STATUS=0
 	BEGIN
-		PRINT 'Here?'
-		PRINT @cur
-		PRINT @prev
 		IF(@cur != '' AND @cur != ISNULL(@prev, ''))
 		BEGIN
-			PRINT 'Here!'
 			UPDATE Team SET phone = @cur WHERE id = @id;
 
 			INSERT INTO History(instance_id, attribute_id, modification_date, previous_value) 
