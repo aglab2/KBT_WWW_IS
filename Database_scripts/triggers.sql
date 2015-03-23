@@ -6,43 +6,22 @@ CREATE TRIGGER T_Answer_is_valid
 	ON Answer
 	INSTEAD OF UPDATE
 AS
-	DECLARE @id INT, @is_valid BIT;
-	DECLARE @id_ INT, @is_valid_ BIT;
-	
-	DECLARE CUR2 CURSOR FOR
-		SELECT id, is_valid FROM deleted
-	DECLARE CUR1 CURSOR FOR
-		SELECT id, is_valid FROM inserted
-
-	DECLARE @att_id1 INT;
-	SET @att_id1 = (SELECT id FROM EntityAttributeDict WHERE 		name='Answer.is_valid')
-	IF (@att_id1 IS NULL)
+	DECLARE @att_id INT;
+	SET @att_id = (SELECT id FROM EntityAttributeDict WHERE name='Answer.is_valid')
+	IF (@att_id IS NULL)
 		raiserror('No such historical entry!', 18, -1);
 
-	OPEN CUR1;
-	OPEN CUR2;
+	UPDATE Answer SET Answer.is_valid = inserted.is_valid 
+		FROM Answer, inserted, deleted 
+		WHERE Answer.id = inserted.id AND deleted.id = inserted.id 
+		AND deleted.is_valid != inserted.is_valid AND inserted.is_valid IS NOT NULL;
 	
-	FETCH NEXT FROM CUR1 INTO @id, @is_valid;
-	FETCH NEXT FROM CUR2 INTO @id_, @is_valid_;	
-		
-	WHILE @@FETCH_STATUS=0
-	BEGIN
-		
-		IF @is_valid IS NOT NULL AND @is_valid != @is_valid_
-			BEGIN
-				UPDATE Answer SET is_valid = @is_valid WHERE id = @id;
-				INSERT INTO History(instance_id, attribute_id, modification_date, previous_value)
-					VALUES(@id, @att_id1, GETDATE(), @is_valid)
-			END
-			
-		FETCH NEXT FROM CUR1 INTO @id, @is_valid;
-		FETCH NEXT FROM CUR2 INTO @id_, @is_valid_;
-	END
-		
-	CLOSE CUR1;
-	CLOSE CUR2;
-	DEALLOCATE CUR1;
-	DEALLOCATE CUR2;
+	INSERT INTO History(instance_id, attribute_id, modification_date, previous_value) 
+		SELECT deleted.id, @att_id, GETDATE(), deleted.is_valid
+		FROM deleted, inserted
+		WHERE deleted.id = inserted.id
+		AND deleted.is_valid != inserted.is_valid
+		AND inserted.is_valid IS NOT NULL;
 GO
 
 IF OBJECT_ID ('T_Team_captain_id', 'TR') IS NOT NULL
