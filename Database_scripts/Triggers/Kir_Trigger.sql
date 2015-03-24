@@ -55,10 +55,7 @@ AS
 			UPDATE Team SET phone = @cur WHERE id = @id;
 
 			INSERT INTO History(instance_id, attribute_id, modification_date, previous_value) 
-			SELECT deleted.id, @att_id, GETDATE(), deleted.phone
-			FROM deleted, inserted
-			WHERE deleted.id = inserted.id
-					AND deleted.phone != inserted.phone
+				VALUES (@id, @att_id, GETDATE(), @prev)
 		END
 		FETCH NEXT FROM CUR_INFO INTO @id, @cur, @prev
 	END
