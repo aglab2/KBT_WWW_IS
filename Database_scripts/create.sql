@@ -90,7 +90,7 @@ CREATE TABLE Question (
 );
 
 CREATE TABLE Answer (
-	id           integer NOT NULL,
+	id           integer IDENTITY(1,1) NOT NULL,
 	gameround_id integer NOT NULL,
 	team_id      integer NOT NULL,
 	question_id  integer,
