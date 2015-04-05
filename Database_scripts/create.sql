@@ -171,6 +171,7 @@ CREATE TABLE EntityAttributeDict (
 );
 
 CREATE TABLE History (
+	id integer IDENTITY(1,1) NOT NULL,
 	instance_id        integer NOT NULL,
 	attribute_id       integer NOT NULL,
 	modification_date  datetime,
@@ -178,9 +179,7 @@ CREATE TABLE History (
 	CONSTRAINT FK_History_EntityAttributeDict FOREIGN KEY (attribute_id)
 		REFERENCES EntityAttributeDict(id),
 	CONSTRAINT PK_History PRIMARY KEY (
-		attribute_id ASC,
-		instance_id ASC,
-		modification_date ASC
+		id ASC
 	)
 );
 
