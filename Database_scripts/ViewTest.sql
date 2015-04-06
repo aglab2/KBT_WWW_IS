@@ -9,7 +9,7 @@ CREATE VIEW GameRound_User AS
 		AND ((IS_MEMBER('Coordinator') = 1
 		AND GameRound.tournament_id = Tournament.id
 		AND Tournament.address_id = Users.address_id)
-		OR (IS_MEMBER('Organizer') = 1
+		OR ((IS_MEMBER('Organizer') = 1 OR IS_MEMBER('Jury') = 1 OR IS_MEMBER('AppelJury') = 1)
 		AND GameRound.tournament_id = Users.tournament_id))
 WITH CHECK OPTION;
 
@@ -23,7 +23,7 @@ CREATE VIEW Tournament_User AS
 		WHERE Users.name = CURRENT_USER
 		AND ((IS_MEMBER('Coordinator') = 1
 		AND Tournament.address_id = Users.address_id)
-		OR (IS_MEMBER('Organizer') = 1
+		OR ((IS_MEMBER('Organizer') = 1 OR IS_MEMBER('Jury') = 1 OR IS_MEMBER('AppelJury') = 1)
 		AND Tournament.id = Users.tournament_id))
 WITH CHECK OPTION;
 
@@ -38,7 +38,7 @@ CREATE VIEW TeamTournament_User AS
 		AND ((IS_MEMBER('Coordinator') = 1
 		AND TeamTournament.tournament_id = Tournament.id
 		AND Tournament.address_id = Users.address_id)
-		OR (IS_MEMBER('Organizer') = 1
+		OR ((IS_MEMBER('Organizer') = 1 OR IS_MEMBER('Jury') = 1 OR IS_MEMBER('AppelJury') = 1)
 		AND TeamTournament.tournament_id = Users.tournament_id))
 WITH CHECK OPTION;
 GO
@@ -54,7 +54,7 @@ CREATE VIEW Team_User AS
 		AND TeamTournament.tournament_id = Tournament.id
 		AND Tournament.address_id = Users.address_id
 		AND TeamTournament.team_id = Team.id)
-		OR (IS_MEMBER('Organizer') = 1
+		OR ((IS_MEMBER('Organizer') = 1 OR IS_MEMBER('Jury') = 1 OR IS_MEMBER('AppelJury') = 1)
 		AND TeamTournament.tournament_id = Users.tournament_id
 		AND TeamTournament.team_id = Team.id))
 WITH CHECK OPTION;
@@ -72,7 +72,7 @@ CREATE VIEW Player_User AS
 		AND Tournament.address_id = Users.address_id
 		AND Tournament.season_id = PlayerSeason.season_id
 		AND PlayerSeason.player_id = Player.id) 
-		OR (IS_MEMBER('Organizer') = 1
+		OR ((IS_MEMBER('Organizer') = 1 OR IS_MEMBER('Jury') = 1 OR IS_MEMBER('AppelJury') = 1)
 		AND Tournament.id = Users.tournament_id
 		AND Tournament.season_id = PlayerSeason.season_id
 		AND PlayerSeason.player_id = Player.id))

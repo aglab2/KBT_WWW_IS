@@ -19,6 +19,27 @@ BEGIN
 	DROP USER Vasya2;
 END
 
+IF EXISTS (SELECT * FROM sys.syslogins WHERE loginname='Petya')
+BEGIN
+	DROP SCHEMA Petya;
+	DROP LOGIN Petya;
+	DROP USER Petya;
+END
+
+IF EXISTS (SELECT * FROM sys.syslogins WHERE loginname='Kolya')
+BEGIN
+	DROP SCHEMA Kolya;
+	DROP LOGIN Kolya;
+	DROP USER Kolya;
+END
+
+IF EXISTS (SELECT * FROM sys.syslogins WHERE loginname='Oleg')
+BEGIN
+	DROP SCHEMA Oleg;
+	DROP LOGIN Oleg;
+	DROP USER Oleg;
+END
+
 IF DATABASE_PRINCIPAL_ID('Coordinator') IS NOT NULL
 BEGIN
 	DROP ROLE Coordinator;
@@ -70,6 +91,121 @@ AS
 	VALUES (@name, 'Coordinator', @season_id, @address_id, @tournament_id)
 GO --TODO DROP USER Trigger
 
+IF DATABASE_PRINCIPAL_ID('Organizer') IS NOT NULL
+BEGIN
+	DROP ROLE Organizer;
+END
+
+CREATE ROLE Organizer
+
+GRANT SELECT ON Season TO Organizer
+GRANT SELECT ON PlayerTeamGameround TO Organizer
+GRANT SELECT ON AgeCategory TO Organizer
+GRANT SELECT ON AddressType TO Organizer
+GRANT SELECT ON PlayerSeason TO Organizer
+GRANT SELECT ON History TO Organizer
+GRANT SELECT ON EntityAttributeDict TO Organizer
+--GRANT SELECT ON Users TO Organizer
+GRANT SELECT, INSERT, UPDATE, DELETE ON TeamTournament_User TO Organizer
+GRANT SELECT, INSERT, UPDATE, DELETE ON GameRound_User TO Organizer
+GRANT SELECT, INSERT, UPDATE, DELETE ON Team_User TO Organizer
+GRANT SELECT, INSERT, UPDATE, DELETE ON Player_User TO Organizer
+GRANT SELECT, INSERT, UPDATE, DELETE ON Answer_User TO Organizer
+GRANT SELECT, INSERT, UPDATE, DELETE ON Question TO Organizer
+go
+
+IF OBJECT_ID ('addOrganizerUser', 'P') IS NOT NULL
+   DROP PROCEDURE addOrganizerUser;
+GO
+
+CREATE PROCEDURE addOrganizerUser(
+	@name nvarchar(255),
+	@password nvarchar(255),
+	@tournament_id integer,
+	@season_id integer,
+	@address_name nvarchar(255))
+AS
+	EXEC sp_addlogin @name, @password;
+	EXEC sp_adduser @name, @name, 'Organizer'
+	DECLARE @address_id INT;
+	SET @address_id = (SELECT id FROM Address WHERE Address.name = @address_name)
+	INSERT INTO Users (name, userrole, season_id, address_id, tournament_id)
+	VALUES (@name, 'Organizer', @season_id, @address_id, @tournament_id)
+GO
+
+IF DATABASE_PRINCIPAL_ID('Jury') IS NOT NULL
+BEGIN
+	DROP ROLE Jury;
+END
+IF DATABASE_PRINCIPAL_ID('AppelJury') IS NOT NULL
+BEGIN
+	DROP ROLE AppelJury;
+END
+
+CREATE ROLE Jury
+CREATE ROLE AppelJury
+
+GRANT SELECT, UPDATE, INSERT, DELETE ON Answer_User TO Jury;
+GRANT SELECT, UPDATE, INSERT, DELETE ON Question TO Jury;
+
+GRANT SELECT ON Tournament_User TO Jury;
+GRANT SELECT ON TeamTournament_User TO Jury;
+GRANT SELECT ON GameRound_User TO Jury;
+GRANT SELECT ON Team_User TO Jury;
+GRANT SELECT ON Address TO Jury;
+
+GRANT SELECT, UPDATE ON Answer_User TO AppelJury;
+GRANT SELECT ON Tournament_User TO AppelJury;
+GRANT SELECT ON TeamTournament_User TO AppelJury;
+GRANT SELECT ON GameRound_User TO AppelJury;
+GRANT SELECT ON Team_User TO AppelJury;
+GRANT SELECT ON Address TO AppelJury;
+go
+
+IF OBJECT_ID ('addJuryUser', 'P') IS NOT NULL
+   DROP PROCEDURE addJuryUser;
+GO
+
+CREATE PROCEDURE addJuryUser(
+	@name nvarchar(255),
+	@password nvarchar(255),
+	@tournament_id int,
+	@season_id integer,
+	@address_name nvarchar(255))
+AS
+	EXEC sp_addlogin @name, @password;
+	EXEC sp_adduser @name, @name, 'Jury'
+	DECLARE @address_id INT;
+	SET @address_id = (SELECT id FROM Address WHERE Address.name = @address_name)
+	INSERT INTO Users (name, userrole, season_id, address_id, tournament_id)
+	VALUES (@name, 'Jury', @season_id, @address_id, @tournament_id)
+GO --TODO DROP USER Trigger
+
+IF OBJECT_ID ('addAppelJuryUser', 'P') IS NOT NULL
+   DROP PROCEDURE addAppelJuryUser;
+GO
+
+CREATE PROCEDURE addAppelJuryUser(
+	@name nvarchar(255),
+	@password nvarchar(255),
+	@tournament_id int,
+	@season_id integer,
+	@address_name nvarchar(255))
+AS
+	EXEC sp_addlogin @name, @password;
+	EXEC sp_adduser @name, @name, 'AppelJury'
+	DECLARE @address_id INT;
+	SET @address_id = (SELECT id FROM Address WHERE Address.name = @address_name)
+	INSERT INTO Users (name, userrole, season_id, address_id, tournament_id)
+	VALUES (@name, 'AppelJury', @season_id, @address_id, @tournament_id)
+GO
+
+EXEC addCoordinatorUser @name = 'Vasya2', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_id = 2;
+EXEC addOrganizerUser @name = 'Petya', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_id = 2;
+EXEC addJuryUser @name = 'Kolya', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_id = 2; 
+EXEC addAppelJuryUser @name = 'Oleg', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_id = 2;
+
+
 IF OBJECT_ID ('DROP_USER_TRIGGER', 'TR') IS NOT NULL
    DROP TRIGGER DROP_USER_TRIGGER;
 GO
@@ -99,9 +235,10 @@ AS
 	DEALLOCATE cursor_del
 GO
 
+IF EXISTS (SELECT * FROM sys.triggers WHERE name = 'DROP_USER_TRIGGER_REV')
 DROP TRIGGER DROP_USER_TRIGGER_REV ON DATABASE;
-GO
 
+GO
 CREATE TRIGGER DROP_USER_TRIGGER_REV 
 	ON DATABASE
 	FOR DROP_USER
@@ -111,7 +248,6 @@ AS
 	DELETE FROM Users WHERE name = @username
 GO
 
-EXEC addCoordinatorUser @name = 'Vasya2', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_id = 2;
 /*
 IF OBJECT_ID ('GameRound_Update_Coordinator', 'TR') IS NOT NULL
    DROP TRIGGER GameRound_Update_Coordinator;
