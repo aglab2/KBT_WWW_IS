@@ -1,12 +1,29 @@
+IF OBJECT_ID ('Users', 'U') IS NOT NULL
+   DROP TABLE Users;
+GO
+
 CREATE TABLE Users(
 	id integer IDENTITY(1,1) NOT NULL,
-	name      nvarchar(255) NOT NULL,
+	name      nvarchar(255) UNIQUE NOT NULL,
 	userrole  nvarchar(25) NOT NULL,
 	season_id integer NOT NULL,
 	address_id integer NOT NULL,
 	tournament_name nvarchar(255) NOT NULL
 );
 GO
+
+IF EXISTS (SELECT * FROM sys.syslogins WHERE loginname='Vasya2')
+BEGIN
+	DROP SCHEMA Vasya2;
+	DROP LOGIN Vasya2;
+	DROP USER Vasya2;
+	DROP ROLE Coordinator;
+END
+
+IF DATABASE_PRINCIPAL_ID('Coordinator') IS NOT NULL
+BEGIN
+	DROP ROLE Coordinator;
+END
 
 CREATE ROLE Coordinator
 
@@ -17,6 +34,7 @@ GRANT SELECT ON OBJECT::dbo.AddressType TO Coordinator
 GRANT SELECT ON OBJECT::dbo.PlayerSeason TO Coordinator
 GRANT SELECT ON OBJECT::dbo.History TO Coordinator
 GRANT SELECT ON OBJECT::dbo.EntityAttributeDict TO Coordinator
+GRANT SELECT ON OBJECT::dbo.Users TO Coordinator
 GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.Tournament TO Coordinator
 GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.TeamTournament TO Coordinator
 GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.GameRound TO Coordinator
@@ -26,6 +44,10 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.Answer TO Coordinator
 GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.Question TO Coordinator
 GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.Address TO Coordinator
 go
+
+IF OBJECT_ID ('addCoordinatorUser', 'P') IS NOT NULL
+   DROP PROCEDURE addCoordinatorUser;
+GO
 
 CREATE PROCEDURE addCoordinatorUser(
 	@name nvarchar(255),
@@ -40,15 +62,15 @@ AS
 	SET @address_id = (SELECT id FROM Address WHERE Address.name = @address_name)
 	INSERT INTO Users (name, userrole, season_id, address_id, tournament_name)
 	VALUES (@name, 'Coordinator', @season_id, @address_id, @tournament_name)
+GO --TODO DROP USER Trigger
+
+EXEC addCoordinatorUser @name = 'Vasya2', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_name = 'ШРеК';
+
+IF OBJECT_ID ('GameRound_Update_Coordinator', 'TR') IS NOT NULL
+   DROP TRIGGER GameRound_Update_Coordinator;
 GO
 
-exec addCoordinatorUser @name = 'Vasya2', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_name = 'ШРеК';
-
-IF OBJECT_ID ('Concret_GameRound_Update_Coordinator', 'TR') IS NOT NULL
-   DROP TRIGGER Concret_GameRound_Update_Coordinator;
-GO
-
-CREATE TRIGGER Concret_GameRound_Update_Coordinator
+CREATE TRIGGER GameRound_Update_Coordinator
 	ON GameRound
 	INSTEAD OF UPDATE
 AS	
@@ -60,7 +82,7 @@ AS
 	DECLARE @season_id integer;
 	DECLARE @address_id integer;
 
-	SET @userrole = (SELECT season_id FROM Users WHERE Users.name = @user_name);
+	SET @userrole = (SELECT userrole FROM Users WHERE Users.name = @user_name);
 	SET @season_id  = (SELECT season_id FROM Users WHERE Users.name = @user_name);
 	SET @address_id = (SELECT address_id FROM Users WHERE Users.name = @user_name);
 	SET @tournament_name = (SELECT tournament_name FROM Users WHERE Users.name = @user_name);
@@ -70,22 +92,11 @@ AS
 	DECLARE @tournament_id integer;
 	SET @tournament_id = (SELECT id FROM Tournament WHERE Tournament.name = @tournament_name AND Tournament.address_id = @address_id AND Tournament.season_id = @season_id AND Tournament.address_id = @address_id);
 
-	INSERT INTO GameRound
-	VALUES (SELECT * FROM inserted WHERE inserted.tournament_id = @tournament_id);
+	UPDATE GameRound SET GameRound.tournament_id=s.tournament_id, GameRound.gamenumber=s.gamenumber
+		FROM inserted s, GameRound 
+		WHERE s.tournament_id = @tournament_id
+		AND s.id = GameRound.id;
 GO
-
-DROP PROCEDURE addCoordinatorUser;
-DROP LOGIN Vasya
-DROP USER Vasya
-DROP TABLE Users;
-DROP ROLE Coordinator
-	
-
-
-
-
-
-go
 
 -- Составляем отчет обо всех пользователях базы данных, утративших связь с именем входа
 --EXECUTE sp_change_users_login @Action='Report';
