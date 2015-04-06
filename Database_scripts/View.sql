@@ -95,7 +95,7 @@ IF OBJECT_ID ('Game_Table', 'V') IS NOT NULL
 DROP VIEW Game_Table;
 GO
 
---CREATE VIEW Game_Table
+CREATE VIEW Game_Table
 AS
 	SELECT name, [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [16], [17], [18], [19], [20], [21], [22], [23], [24], [25], [26], [27], [28], [29], [30], [31], [32], [33], [34], [35], [36]
 	FROM
@@ -104,7 +104,7 @@ AS
 		FROM Team
 		LEFT JOIN Answer
 			ON Team.id = Answer.team_id
-		WHERE gameround_id = 1 AND is_valid = 1
+		WHERE gameround_id = 2 AND is_valid = 1
 	) x
 	PIVOT
 	(
