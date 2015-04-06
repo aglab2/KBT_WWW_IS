@@ -10,21 +10,21 @@ END
 CREATE ROLE Jury
 CREATE ROLE AppelJury
 
-GRANT SELECT, UPDATE, INSERT, DELETE ON Answer_Role TO Jury;
-GRANT SELECT, UPDATE, INSERT, DELETE ON Question_Role TO Jury;
+GRANT SELECT, UPDATE, INSERT, DELETE ON Answer_User TO Jury;
+GRANT SELECT, UPDATE, INSERT, DELETE ON Question TO Jury;
 
-GRANT SELECT ON Tournament_Role TO Jury;
-GRANT SELECT ON TeamTournament_Role TO Jury;
-GRANT SELECT ON GameRound_Role TO Jury;
-GRANT SELECT ON Team_Role TO Jury;
-GRANT SELECT ON Address_Role TO Jury;
+GRANT SELECT ON Tournament_User TO Jury;
+GRANT SELECT ON TeamTournament_User TO Jury;
+GRANT SELECT ON GameRound_User TO Jury;
+GRANT SELECT ON Team_User TO Jury;
+GRANT SELECT ON Address TO Jury;
 
-GRANT SELECT, UPDATE ON Answer_Role TO AppelJury;
-GRANT SELECT ON Tournament_Role TO AppelJury;
-GRANT SELECT ON TeamTournament_Role TO AppelJury;
-GRANT SELECT ON GameRound_Role TO AppelJury;
-GRANT SELECT ON Team_Role TO AppelJury;
-GRANT SELECT ON Address_Role TO AppelJury;
+GRANT SELECT, UPDATE ON Answer_User TO AppelJury;
+GRANT SELECT ON Tournament_User TO AppelJury;
+GRANT SELECT ON TeamTournament_User TO AppelJury;
+GRANT SELECT ON GameRound_User TO AppelJury;
+GRANT SELECT ON Team_User TO AppelJury;
+GRANT SELECT ON Address TO AppelJury;
 go
 
 IF OBJECT_ID ('addJuryUser', 'P') IS NOT NULL

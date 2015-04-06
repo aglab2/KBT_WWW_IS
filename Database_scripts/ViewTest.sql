@@ -1,102 +1,92 @@
 GO
-IF OBJECT_ID('GameRound_Coordinator', 'V') IS NOT NULL
-	DROP VIEW GameRound_Coordinator
+IF OBJECT_ID('GameRound_User', 'V') IS NOT NULL
+	DROP VIEW GameRound_User
 GO
-CREATE VIEW GameRound_Coordinator AS
+CREATE VIEW GameRound_User AS
 	SELECT GameRound.tournament_id, GameRound.gamenumber, GameRound.id
 		FROM GameRound, Users, Tournament
 		WHERE Users.name = CURRENT_USER
-		AND IS_MEMBER('Сoordinator') = 1
+		AND ((IS_MEMBER('Coordinator') = 1
 		AND GameRound.tournament_id = Tournament.id
-		AND Tournament.address_id = Users.address_id
-WITH CHECK OPTION;
-		
-GO
-IF OBJECT_ID('GameRound_Organizer', 'V') IS NOT NULL
-	DROP VIEW GameRound_Organizer
-GO
-CREATE VIEW GameRound_Organizer AS
-	SELECT GameRound.tournament_id, GameRound.gamenumber, GameRound.id
-		FROM GameRound, Users, Tournament
-		WHERE Users.name = CURRENT_USER
-		AND IS_MEMBER('Organizer') = 1
-		AND GameRound.tournament_id = Users.tournament_id
+		AND Tournament.address_id = Users.address_id)
+		OR (IS_MEMBER('Organizer') = 1
+		AND GameRound.tournament_id = Users.tournament_id))
 WITH CHECK OPTION;
 
 GO
-IF OBJECT_ID('Tournament_Coordinator', 'V') IS NOT NULL
-	DROP VIEW Tournament_Coordinator
+IF OBJECT_ID('Tournament_User', 'V') IS NOT NULL
+	DROP VIEW Tournament_User
 GO
-CREATE VIEW Tournament_Coordinator AS
+CREATE VIEW Tournament_User AS
 	SELECT Tournament.id, Tournament.name, Tournament.address_id, Tournament.password, Tournament.season_id
 		FROM Tournament, Users
 		WHERE Users.name = CURRENT_USER
-		AND IS_MEMBER('Сoordinator') = 1
-		AND Tournament.address_id = Users.address_id
+		AND ((IS_MEMBER('Coordinator') = 1
+		AND Tournament.address_id = Users.address_id)
+		OR (IS_MEMBER('Organizer') = 1
+		AND Tournament.id = Users.tournament_id))
 WITH CHECK OPTION;
 
 GO
-IF OBJECT_ID('Tournament_Organizer', 'V') IS NOT NULL
-	DROP VIEW Tournament_Organizer
+IF OBJECT_ID ('TeamTournament_User', 'V') IS NOT NULL
+	DROP VIEW TeamTournament_User;
 GO
-CREATE VIEW Tournament_Organizer AS
-	SELECT Tournament.id, Tournament.name, Tournament.address_id, Tournament.password, Tournament.season_id
-		FROM Tournament, Users
-		WHERE Users.name = CURRENT_USER
-		AND IS_MEMBER('Organizer') = 1
-		AND Tournament.tournament_id = Users.tournament_id
-WITH CHECK OPTION;
-
-GO
-IF OBJECT_ID ('TeamTournament_Coordinator', 'V') IS NOT NULL
-	DROP VIEW TeamTournament_Coordinator;
-GO
-CREATE VIEW TeamTournament_Coordinator AS
+CREATE VIEW TeamTournament_User AS
 	SELECT TeamTournament.tournament_id, TeamTournament.team_id, TeamTournament.age_category_id, TeamTournament.regcard_number
 		FROM TeamTournament, Users, Tournament
 		WHERE Users.name = CURRENT_USER
-		AND IS_MEMBER('Coordinator') = 1
+		AND ((IS_MEMBER('Coordinator') = 1
+		AND TeamTournament.tournament_id = Tournament.id
+		AND Tournament.address_id = Users.address_id)
+		OR (IS_MEMBER('Organizer') = 1
+		AND TeamTournament.tournament_id = Users.tournament_id))
+WITH CHECK OPTION;
+GO
+
+IF OBJECT_ID ('Team_User', 'V') IS NOT NULL
+DROP VIEW Team_User;
+GO
+CREATE VIEW Team_User AS
+	SELECT Team.id, Team.name, Team.phone, Team.email, Team.captain_id, Team.address_id
+		FROM TeamTournament, Users, Team, Tournament
+		WHERE Users.name = CURRENT_USER
+		AND ((IS_MEMBER('Coordinator') = 1
 		AND TeamTournament.tournament_id = Tournament.id
 		AND Tournament.address_id = Users.address_id
-WITH CHECK OPTION;
-GO
-
-GO
-IF OBJECT_ID ('TeamTournament_Organizer', 'V') IS NOT NULL
-	DROP VIEW TeamTournament_Organizer;
-GO
-CREATE VIEW TeamTournament_Organizer AS
-	SELECT TeamTournament.tournament_id, TeamTournament.team_id, TeamTournament.age_category_id, TeamTournament.regcard_number
-		FROM TeamTournament, Users
-		WHERE Users.name = CURRENT_USER
-		AND IS_MEMBER('Organizer') = 1
+		AND TeamTournament.team_id = Team.id)
+		OR (IS_MEMBER('Organizer') = 1
 		AND TeamTournament.tournament_id = Users.tournament_id
+		AND TeamTournament.team_id = Team.id))
 WITH CHECK OPTION;
 GO
 
-IF OBJECT_ID ('Team_Coordinator', 'V') IS NOT NULL
-DROP VIEW Team_Coordinator;
 GO
-CREATE VIEW Team_Coordinator AS
-SELECT Team.id, Team.name, Team.phone, Team.email, Team.captain_id, Team.address_id
-FROM TeamTournament, Users, Team, Tournament
-WHERE Users.name = CURRENT_USER
-AND IS_MEMBER('Coordinator')
-AND TeamTournament.tournament_id = Tournament.id
-AND Tournament.address_id = Users.address_id
-AND TeamTournament.team_id = Team.id
+IF OBJECT_ID ('Player_User', 'V') IS NOT NULL
+	DROP VIEW Player_User;
+GO
+CREATE VIEW Player_User AS
+	SELECT Player.id, Player.name, Player.birthday, Player.team_id
+		FROM PlayerSeason, Player, Users, Tournament
+		WHERE Users.name = CURRENT_USER
+		AND ((IS_MEMBER('Coordinator') = 1
+		AND Tournament.address_id = Users.address_id
+		AND Tournament.season_id = PlayerSeason.season_id
+		AND PlayerSeason.player_id = Player.id) 
+		OR (IS_MEMBER('Organizer') = 1
+		AND Tournament.id = Users.tournament_id
+		AND Tournament.season_id = PlayerSeason.season_id
+		AND PlayerSeason.player_id = Player.id))
 WITH CHECK OPTION;
 GO
 
-IF OBJECT_ID ('Team_Organizer', 'V') IS NOT NULL
-DROP VIEW Team_Organizer;
+IF OBJECT_ID ('Answer_User', 'V') IS NOT NULL
+	DROP VIEW Answer_User;
 GO
-CREATE VIEW Team_Organizer AS
-SELECT Team.id, Team.name, Team.phone, Team.email, Team.captain_id, Team.address_id
-FROM TeamTournament, Users, Team
-WHERE Users.name = CURRENT_USER
-AND IS_MEMBER('Organizer')
-AND TeamTournament.tournament_id = Users.tournament_id
-AND TeamTournament.team_id = Team.id
+CREATE VIEW Answer_User AS
+	SELECT Answer.id, Answer.answer_text, Answer.gameround_id, Answer.is_valid, Answer.question_id, Answer.question_num, Answer.team_id
+		FROM Answer, Users, Tournament, GameRound
+		WHERE Users.name = CURRENT_USER
+		AND GameRound.tournament_id = Users.tournament_id
+		AND GameRound.id = Answer.gameround_id
 WITH CHECK OPTION;
 GO

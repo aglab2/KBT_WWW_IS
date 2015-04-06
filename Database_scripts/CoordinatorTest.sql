@@ -17,7 +17,6 @@ BEGIN
 	DROP SCHEMA Vasya2;
 	DROP LOGIN Vasya2;
 	DROP USER Vasya2;
-	DROP ROLE Coordinator;
 END
 
 IF DATABASE_PRINCIPAL_ID('Coordinator') IS NOT NULL
@@ -28,22 +27,21 @@ END
 CREATE ROLE Coordinator
 
 GRANT SELECT, INSERT, UPDATE ON GameRound_User TO Coordinator
-GRANT SELECT ON OBJECT::dbo.Season TO Coordinator
-GRANT SELECT ON OBJECT::dbo.PlayerTeamGameround TO Coordinator
-GRANT SELECT ON OBJECT::dbo.AgeCategory TO Coordinator
-GRANT SELECT ON OBJECT::dbo.AddressType TO Coordinator
-GRANT SELECT ON OBJECT::dbo.PlayerSeason TO Coordinator
-GRANT SELECT ON OBJECT::dbo.History TO Coordinator
-GRANT SELECT ON OBJECT::dbo.EntityAttributeDict TO Coordinator
-GRANT SELECT ON OBJECT::dbo.Users TO Coordinator
-GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.Tournament TO Coordinator
-GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.TeamTournament TO Coordinator
-GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.GameRound TO Coordinator
-GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.Team TO Coordinator
-GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.Player TO Coordinator
-GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.Answer TO Coordinator
-GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.Question TO Coordinator
-GRANT SELECT, INSERT, UPDATE, DELETE ON OBJECT::dbo.Address TO Coordinator
+GRANT SELECT ON Season TO Coordinator
+GRANT SELECT ON PlayerTeamGameround TO Coordinator
+GRANT SELECT ON AgeCategory TO Coordinator
+GRANT SELECT ON AddressType TO Coordinator
+GRANT SELECT ON PlayerSeason TO Coordinator
+GRANT SELECT ON History TO Coordinator
+GRANT SELECT ON EntityAttributeDict TO Coordinator
+GRANT SELECT, INSERT, UPDATE, DELETE ON Tournament_User TO Coordinator
+GRANT SELECT, INSERT, UPDATE, DELETE ON TeamTournament_User TO Coordinator
+GRANT SELECT, INSERT, UPDATE, DELETE ON GameRound_User TO Coordinator
+GRANT SELECT, INSERT, UPDATE, DELETE ON Team_User TO Coordinator
+GRANT SELECT, INSERT, UPDATE, DELETE ON Player_User TO Coordinator
+GRANT SELECT, INSERT, UPDATE, DELETE ON Answer_User TO Coordinator
+GRANT SELECT, INSERT, UPDATE, DELETE ON Question TO Coordinator
+GRANT SELECT, INSERT, UPDATE, DELETE ON Address TO Coordinator
 go
 
 IF OBJECT_ID ('addCoordinatorUser', 'P') IS NOT NULL
