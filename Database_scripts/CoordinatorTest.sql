@@ -99,8 +99,19 @@ AS
 	DEALLOCATE cursor_del
 GO
 
-EXEC addCoordinatorUser @name = 'Vasya2', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_id = 2;
+DROP TRIGGER DROP_USER_TRIGGER_REV ON DATABASE;
+GO
 
+CREATE TRIGGER DROP_USER_TRIGGER_REV 
+	ON DATABASE
+	FOR DROP_USER
+AS
+	DECLARE @username NVARCHAR(MAX)
+	SET @username = EVENTDATA().value('(/EVENT_INSTANCE/UserName)[1]','nvarchar(max)')
+	DELETE FROM Users WHERE name = @username
+GO
+
+EXEC addCoordinatorUser @name = 'Vasya2', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_id = 2;
 /*
 IF OBJECT_ID ('GameRound_Update_Coordinator', 'TR') IS NOT NULL
    DROP TRIGGER GameRound_Update_Coordinator;
