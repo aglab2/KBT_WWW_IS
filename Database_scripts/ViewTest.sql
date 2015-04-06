@@ -6,7 +6,7 @@ CREATE VIEW GameRound_Coordinator AS
 	SELECT GameRound.tournament_id, GameRound.gamenumber, GameRound.id
 		FROM GameRound, Users
 		WHERE Users.name = CURRENT_USER
-		AND IS_MEMBER('Сoordinator') = 1
+		AND IS_MEMBER('Coordinator') = 1
 		AND GameRound.tournament_id = Tournament.id
 		AND Tournament.address_id = Users.address_id
 		
@@ -29,7 +29,7 @@ CREATE VIEW Tournament_Coordinator AS
 	SELECT Tournament.id, Tournament.name, Tournament.address_id, Tournament.password, Tournament.season_id
 		FROM Tournament, Users
 		WHERE Users.name = CURRENT_USER
-		AND IS_MEMBER('Сoordinator') = 1
+		AND IS_MEMBER('Coordinator') = 1
 		AND Tournament.address_id = Users.address_id
 
 GO
@@ -42,3 +42,15 @@ CREATE VIEW Tournament_Organizer AS
 		WHERE Users.name = CURRENT_USER
 		AND IS_MEMBER('Organizer') = 1
 		AND Tournament.tournament_id = Users.tournament_id
+/*
+IF OBJECT_ID('Game_Table', 'V') IS NOT NULL
+	DROP VIEW Game_Table
+GO
+
+CREATE VIEW Game_Table(gameround_id) AS
+	WITH recurs(base) AS 
+		(SELECT DISTINCT question_id, 
+			FROM Answer WHERE gameround_id = @gameround_id
+			WHERE question_id >= base
+		UNION ALL SELECT  
+	*/
