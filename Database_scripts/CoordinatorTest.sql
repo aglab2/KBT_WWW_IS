@@ -8,7 +8,7 @@ CREATE TABLE Users(
 	userrole  nvarchar(25) NOT NULL,
 	season_id integer NOT NULL,
 	address_id integer NOT NULL,
-	tournament_name nvarchar(255) NOT NULL
+	tournament_id int NOT NULL
 );
 GO
 
@@ -27,6 +27,7 @@ END
 
 CREATE ROLE Coordinator
 
+GRANT SELECT, INSERT, UPDATE ON GameRound_User TO Coordinator
 GRANT SELECT ON OBJECT::dbo.Season TO Coordinator
 GRANT SELECT ON OBJECT::dbo.PlayerTeamGameround TO Coordinator
 GRANT SELECT ON OBJECT::dbo.AgeCategory TO Coordinator
@@ -52,7 +53,7 @@ GO
 CREATE PROCEDURE addCoordinatorUser(
 	@name nvarchar(255),
 	@password nvarchar(255),
-	@tournament_name nvarchar(255),
+	@tournament_id int,
 	@season_id integer,
 	@address_name nvarchar(255))
 AS
@@ -60,11 +61,11 @@ AS
 	EXEC sp_adduser @name, @name, 'Coordinator'
 	DECLARE @address_id INT;
 	SET @address_id = (SELECT id FROM Address WHERE Address.name = @address_name)
-	INSERT INTO Users (name, userrole, season_id, address_id, tournament_name)
-	VALUES (@name, 'Coordinator', @season_id, @address_id, @tournament_name)
+	INSERT INTO Users (name, userrole, season_id, address_id, tournament_id)
+	VALUES (@name, 'Coordinator', @season_id, @address_id, @tournament_id)
 GO --TODO DROP USER Trigger
 
-EXEC addCoordinatorUser @name = 'Vasya2', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_name = 'ШРеК';
+EXEC addCoordinatorUser @name = 'Vasya2', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_id = 2;
 
 IF OBJECT_ID ('GameRound_Update_Coordinator', 'TR') IS NOT NULL
    DROP TRIGGER GameRound_Update_Coordinator;
@@ -78,20 +79,17 @@ AS
 	SET @user_name = (SELECT CURRENT_USER);
 
 	DECLARE @userrole  nvarchar(25);
-	DECLARE @tournament_name  nvarchar(255);
+	DECLARE @tournament_id  int;
 	DECLARE @season_id integer;
 	DECLARE @address_id integer;
 
 	SET @userrole = (SELECT userrole FROM Users WHERE Users.name = @user_name);
 	SET @season_id  = (SELECT season_id FROM Users WHERE Users.name = @user_name);
 	SET @address_id = (SELECT address_id FROM Users WHERE Users.name = @user_name);
-	SET @tournament_name = (SELECT tournament_name FROM Users WHERE Users.name = @user_name);
+	SET @tournament_id = (SELECT tournament_id FROM Users WHERE Users.name = @user_name);
 
 	IF (@userrole != 'Coordinator') RETURN;
 	
-	DECLARE @tournament_id integer;
-	SET @tournament_id = (SELECT id FROM Tournament WHERE Tournament.name = @tournament_name AND Tournament.address_id = @address_id AND Tournament.season_id = @season_id AND Tournament.address_id = @address_id);
-
 	UPDATE GameRound SET GameRound.tournament_id=s.tournament_id, GameRound.gamenumber=s.gamenumber
 		FROM inserted s, GameRound 
 		WHERE s.tournament_id = @tournament_id
