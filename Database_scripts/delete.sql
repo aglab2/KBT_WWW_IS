@@ -28,3 +28,4 @@ DROP TABLE Player;
 DROP TABLE Team;
 DROP TABLE Address;
 DROP TABLE AddressType;
+DROP TABLE Users;

@@ -1,5 +1,3 @@
-USE [kbt-project];
-
 IF OBJECT_ID ('T_Answer_is_valid', 'TR') IS NOT NULL
    DROP TRIGGER T_Answer_is_valid;
 GO

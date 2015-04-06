@@ -1,17 +1,3 @@
-IF OBJECT_ID ('Users', 'U') IS NOT NULL
-   DROP TABLE Users;
-GO
-
-CREATE TABLE Users(
-	id integer IDENTITY(1,1) NOT NULL,
-	name      nvarchar(255) UNIQUE NOT NULL,
-	userrole  nvarchar(25) NOT NULL,
-	season_id integer NOT NULL,
-	address_id integer NOT NULL,
-	tournament_id int NOT NULL
-);
-GO
-
 IF EXISTS (SELECT * FROM sys.syslogins WHERE loginname='Vasya2')
 BEGIN
 	DROP SCHEMA Vasya2;
@@ -64,32 +50,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON Answer_User TO Coordinator
 GRANT SELECT, INSERT, UPDATE, DELETE ON Question TO Coordinator
 GRANT SELECT, INSERT, UPDATE, DELETE ON Address TO Coordinator
 go
-
-IF OBJECT_ID ('addCoordinatorUser', 'P') IS NOT NULL
-   DROP PROCEDURE addCoordinatorUser;
-GO
-
-CREATE PROCEDURE addCoordinatorUser(
-	@name nvarchar(255),
-	@password nvarchar(255),
-	@tournament_id int,
-	@season_id integer,
-	@address_name nvarchar(255))
-AS
-	EXEC sp_addlogin @name, @password;
-	EXEC sp_adduser @name, @name, 'Coordinator'
-	DECLARE @address_id INT;
-	SET @address_id = (SELECT id FROM Address WHERE Address.name = @address_name)
-	IF @address_id IS NULL
-	BEGIN
-		DECLARE @address_type_id INT
-		SET @address_type_id = (SELECT id FROM AddressType WHERE name = 'City')
-		INSERT INTO Address (type_id, name) VALUES (@address_type_id, @address_name)
-		SET @address_id = IDENT_CURRENT('Address')
-	END
-	INSERT INTO Users (name, userrole, season_id, address_id, tournament_id)
-	VALUES (@name, 'Coordinator', @season_id, @address_id, @tournament_id)
-GO --TODO DROP USER Trigger
 
 IF DATABASE_PRINCIPAL_ID('Organizer') IS NOT NULL
 BEGIN
