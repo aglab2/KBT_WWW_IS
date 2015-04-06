@@ -91,23 +91,6 @@ CREATE VIEW Answer_User AS
 WITH CHECK OPTION;
 GO
 
-IF OBJECT_ID ('PlayerTeamGameround_User', 'V') IS NOT NULL
-	DROP VIEW PlayerTeamGameround;
-GO
-
-CREATE VIEW PlayerTeamGameround_User AS
-	SELECT player_id, gameround_id, team_id
-		FROM PlayerTeamGameround, GameRound, Tournament, Users
-		WHERE Users.name = CURRENT_USER
-		AND PlayerTeamGameround.gameround_id = GameRound.id
-		AND GameRound.tournament_id = Tournament.id
-		AND (IS_MEMBER('Organizer') = 1 AND
-		Tournament.id = Users.id) OR (
-		IS_MEMBER('Coordinator') = 1 AND
-		Tournament.address_id = Users.address_id)
-WITH CHECK OPTION;
-
-GO
 IF OBJECT_ID ('Game_Table', 'V') IS NOT NULL
 DROP VIEW Game_Table;
 GO
@@ -127,6 +110,6 @@ AS
 	(
 	COUNT(id)
 	FOR question_num IN ([1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [16], [17], [18], [19], [20], [21], [22], [23], [24], [25], [26], [27], [28], [29], [30], [31], [32], [33], [34], [35], [36])
-	) p ORDER BY total DESC;
+	) p;
 GO
 
