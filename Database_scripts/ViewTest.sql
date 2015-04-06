@@ -44,7 +44,7 @@ CREATE VIEW Tournament_Organizer AS
 		FROM Tournament, Users
 		WHERE Users.name = CURRENT_USER
 		AND IS_MEMBER('Organizer') = 1
-		AND Tournament.tournament_id = Users.tournament_id
+		AND Tournament.id = Users.tournament_id
 WITH CHECK OPTION;
 
 GO
@@ -81,7 +81,7 @@ CREATE VIEW Team_Coordinator AS
 SELECT Team.id, Team.name, Team.phone, Team.email, Team.captain_id, Team.address_id
 FROM TeamTournament, Users, Team, Tournament
 WHERE Users.name = CURRENT_USER
-AND IS_MEMBER('Coordinator')
+AND IS_MEMBER('Coordinator') = 1
 AND TeamTournament.tournament_id = Tournament.id
 AND Tournament.address_id = Users.address_id
 AND TeamTournament.team_id = Team.id
@@ -95,8 +95,30 @@ CREATE VIEW Team_Organizer AS
 SELECT Team.id, Team.name, Team.phone, Team.email, Team.captain_id, Team.address_id
 FROM TeamTournament, Users, Team
 WHERE Users.name = CURRENT_USER
-AND IS_MEMBER('Organizer')
+AND IS_MEMBER('Organizer') = 1
 AND TeamTournament.tournament_id = Users.tournament_id
 AND TeamTournament.team_id = Team.id
 WITH CHECK OPTION;
+GO
+
+IF OBJECT_ID ('Game_Table', 'V') IS NOT NULL
+DROP VIEW Game_Table;
+GO
+
+CREATE VIEW Game_Table
+AS
+	SELECT name, [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [16], [17], [18], [19], [20], [21], [22], [23], [24], [25], [26], [27], [28], [29], [30], [31], [32], [33], [34], [35], [36]
+	FROM
+	(
+		SELECT Answer.id AS id, Team.name, Answer.question_num
+		FROM Team
+		LEFT JOIN Answer
+			ON Team.id = Answer.team_id
+		WHERE gameround_id = 1
+	) x
+	PIVOT
+	(
+	COUNT(id)
+	FOR question_num IN ([1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [16], [17], [18], [19], [20], [21], [22], [23], [24], [25], [26], [27], [28], [29], [30], [31], [32], [33], [34], [35], [36])
+	) p;
 GO
