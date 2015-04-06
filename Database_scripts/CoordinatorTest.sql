@@ -61,6 +61,13 @@ AS
 	EXEC sp_adduser @name, @name, 'Coordinator'
 	DECLARE @address_id INT;
 	SET @address_id = (SELECT id FROM Address WHERE Address.name = @address_name)
+	IF @address_id IS NULL
+	BEGIN
+		DECLARE @address_type_id INT
+		SET @address_type_id = (SELECT id FROM AddressType WHERE name = 'City')
+		INSERT INTO Address (type_id, name) VALUES (@address_type_id, @address_name)
+		SET @address_id = IDENT_CURRENT('Address')
+	END
 	INSERT INTO Users (name, userrole, season_id, address_id, tournament_id)
 	VALUES (@name, 'Coordinator', @season_id, @address_id, @tournament_id)
 GO --TODO DROP USER Trigger
@@ -68,10 +75,30 @@ GO --TODO DROP USER Trigger
 IF OBJECT_ID ('DROP_USER_TRIGGER', 'TR') IS NOT NULL
    DROP TRIGGER DROP_USER_TRIGGER;
 GO
-CREATE TRIGGER DROP_USER_TRIGGER ON DATABASE
-FOR DROP_USER
+
+CREATE TRIGGER DROP_USER_TRIGGER 
+	ON Users
+	FOR DELETE
 AS
-	--vlagvis, we believe in you
+	DECLARE @cur_name NVARCHAR(MAX)
+	DECLARE cursor_del CURSOR FOR
+	SELECT name
+	FROM deleted
+
+	OPEN cursor_del
+	FETCH NEXT FROM cursor_del
+	INTO @cur_name	
+	
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		
+		EXEC sp_dropuser @cur_name 
+		EXEC sp_droplogin @cur_name
+		FETCH NEXT FROM cursor_del
+		INTO @cur_name
+	END
+	CLOSE cursor_del
+	DEALLOCATE cursor_del
 GO
 
 EXEC addCoordinatorUser @name = 'Vasya2', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_id = 2;
