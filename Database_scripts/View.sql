@@ -91,6 +91,23 @@ CREATE VIEW Answer_User AS
 WITH CHECK OPTION;
 GO
 
+IF OBJECT_ID ('PlayerTeamGameround_User', 'V') IS NOT NULL
+	DROP VIEW PlayerTeamGameround;
+GO
+
+CREATE VIEW PlayerTeamGameround_User AS
+	SELECT player_id, gameround_id, team_id
+		FROM PlayerTeamGameround, GameRound, Tournament, Users
+		WHERE Users.name = CURRENT_USER
+		AND PlayerTeamGameround.gameround_id = GameRound.id
+		AND GameRound.tournament_id = Tournament.id
+		AND (IS_MEMBER('Organizer') = 1 AND
+		Tournament.id = Users.id) OR (
+		IS_MEMBER('Coordinator') = 1 AND
+		Tournament.address_id = Users.address_id)
+WITH CHECK OPTION;
+
+GO
 IF OBJECT_ID ('Game_Table', 'V') IS NOT NULL
 DROP VIEW Game_Table;
 GO
