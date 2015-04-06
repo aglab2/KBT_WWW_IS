@@ -73,3 +73,30 @@ CREATE VIEW TeamTournament_Organizer AS
 		AND TeamTournament.tournament_id = Users.tournament_id
 WITH CHECK OPTION;
 GO
+
+IF OBJECT_ID ('Team_Coordinator', 'V') IS NOT NULL
+DROP VIEW Team_Coordinator;
+GO
+CREATE VIEW Team_Coordinator AS
+SELECT Team.id, Team.name, Team.phone, Team.email, Team.captain_id, Team.address_id
+FROM TeamTournament, Users, Team, Tournament
+WHERE Users.name = CURRENT_USER
+AND IS_MEMBER('Coordinator')
+AND TeamTournament.tournament_id = Tournament.id
+AND Tournament.address_id = Users.address_id
+AND TeamTournament.team_id = Team.id
+WITH CHECK OPTION;
+GO
+
+IF OBJECT_ID ('Team_Organizer', 'V') IS NOT NULL
+DROP VIEW Team_Organizer;
+GO
+CREATE VIEW Team_Organizer AS
+SELECT Team.id, Team.name, Team.phone, Team.email, Team.captain_id, Team.address_id
+FROM TeamTournament, Users, Team
+WHERE Users.name = CURRENT_USER
+AND IS_MEMBER('Organizer')
+AND TeamTournament.tournament_id = Users.tournament_id
+AND TeamTournament.team_id = Team.id
+WITH CHECK OPTION;
+GO
