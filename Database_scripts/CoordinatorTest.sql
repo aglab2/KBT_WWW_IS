@@ -65,8 +65,18 @@ AS
 	VALUES (@name, 'Coordinator', @season_id, @address_id, @tournament_id)
 GO --TODO DROP USER Trigger
 
+IF OBJECT_ID ('DROP_USER_TRIGGER', 'TR') IS NOT NULL
+   DROP TRIGGER DROP_USER_TRIGGER;
+GO
+CREATE TRIGGER DROP_USER_TRIGGER ON DATABASE
+FOR DROP_USER
+AS
+	--vlagvis, we believe in you
+GO
+
 EXEC addCoordinatorUser @name = 'Vasya2', @password='123', @season_id = 1, @address_name = 'Москва', @tournament_id = 2;
 
+/*
 IF OBJECT_ID ('GameRound_Update_Coordinator', 'TR') IS NOT NULL
    DROP TRIGGER GameRound_Update_Coordinator;
 GO
@@ -95,7 +105,7 @@ AS
 		WHERE s.tournament_id = @tournament_id
 		AND s.id = GameRound.id;
 GO
-
+*/
 -- Составляем отчет обо всех пользователях базы данных, утративших связь с именем входа
 --EXECUTE sp_change_users_login @Action='Report';
 
